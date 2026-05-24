@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Branże, dla których pracujemy — przemysł, motoryzacja, transport, rolnictwo, budownictwo, usługi techniczne.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Branże — FRANZA GROUP</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <style>
+    .industry-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .industry-section:nth-child(even) {
+      background-color: var(--bg-secondary);
+    }
+    .industry-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .industry-detail-grid {
+        grid-template-columns: 1fr 1.2fr;
+      }
+      .industry-detail-grid.reverse .industry-detail-text {
+        order: 2;
+      }
+    }
+    .industry-detail-icon {
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      background-color: rgba(255, 107, 26, 0.1);
+      color: var(--accent);
+      border-radius: var(--radius-md);
+      margin-bottom: 1.5rem;
+    }
+    .industry-detail-image {
+      aspect-ratio: 4/3;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .industry-detail-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-slot"></div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a href="../index.html">Strona główna</a>
+          <span class="separator">/</span>
+          <span>Branże</span>
+        </div>
+        <span class="eyebrow">Dla kogo pracujemy</span>
+        <h1>Branże, które obsługujemy</h1>
+        <p>Dostarczamy chemię techniczną do sześciu kluczowych sektorów gospodarki. Każdy z nich wymaga innych rozwiązań — i takie właśnie dla niego mamy.</p>
+      </div>
+    </section>
+
+    <!-- PRZEMYSŁ -->
+    <section class="industry-section">
+      <div class="container">
+        <div class="industry-detail-grid">
+          <div>
+            <div class="industry-detail-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M5 20V8.2L12 4l7 4.2V20M9 12h2v8H9zM13 12h2v8h-2z"/></svg>
+            </div>
+            <span class="eyebrow">Przemysł</span>
+            <h2>Produkty dla zakładów produkcyjnych</h2>
+            <p>Chemia techniczna dla zakładów przemysłowych — od środków czyszczących, przez smary techniczne, po preparaty antykorozyjne i konserwujące maszyny.</p>
+            <div class="feature-list">
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Utrzymanie ruchu</h4><p>Środki konserwujące, smary, preparaty antykorozyjne.</p></div>
+              </div>
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Czystość i higiena</h4><p>Profesjonalne środki do mycia hal, podłóg i powierzchni produkcyjnych.</p></div>
+              </div>
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Ochrona maszyn</h4><p>Zwiększanie żywotności urządzeń i niezawodności produkcji.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="industry-detail-image">
+            <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1000&q=80&auto=format&fit=crop" alt="Przemysł" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOTORYZACJA -->
+    <section class="industry-section">
+      <div class="container">
+        <div class="industry-detail-grid reverse">
+          <div>
+            <div class="industry-detail-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 11l2-6h14l2 6M7 11v6M17 11v6M5 17v3M19 17v3"/><circle cx="7" cy="14" r="1" fill="currentColor"/><circle cx="17" cy="14" r="1" fill="currentColor"/></svg>
+            </div>
+            <span class="eyebrow">Motoryzacja</span>
+            <h2>Chemia dla warsztatów i serwisów</h2>
+            <p>Kompletna oferta chemii motoryzacyjnej — od podstawowych preparatów warsztatowych po specjalistyczne środki do detailingu i serwisu pojazdów.</p>
+            <div class="feature-list">
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Oleje i płyny eksploatacyjne</h4><p>Mannol, FRANZA — pełen wybór olejów silnikowych i przekładniowych.</p></div>
+              </div>
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Chemia warsztatowa</h4><p>FRANZA, Xton — czyściki, penetrowary, smary serwisowe.</p></div>
+              </div>
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Detailing i kosmetyka</h4><p>Środki do mycia, polerowania i konserwacji karoserii.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="industry-detail-image">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1000&q=80&auto=format&fit=crop" alt="Motoryzacja" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPORT -->
+    <section class="industry-section">
+      <div class="container">
+        <div class="industry-detail-grid">
+          <div>
+            <div class="industry-detail-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="5" width="14" height="11" rx="1"/><path d="M15 8h4l3 4v4h-7"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+            </div>
+            <span class="eyebrow">Transport</span>
+            <h2>Utrzymanie floty w najlepszej kondycji</h2>
+            <p>Specjalistyczna chemia dla firm transportowych — od mycia ciągników siodłowych po konserwację i naprawę pojazdów ciężarowych.</p>
+            <div class="feature-list">
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Mycie i pielęgnacja</h4><p>Środki do mycia karoserii, plandek i wnętrz pojazdów ciężarowych.</p></div>
+              </div>
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Serwis i naprawy</h4><p>Smary, oleje przekładniowe, chemia eksploatacyjna do TIR-ów i autobusów.</p></div>
+              </div>
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>AdBlue i płyny zimowe</h4><p>Pełen wybór płynów eksploatacyjnych dla nowoczesnych pojazdów.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="industry-detail-image">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1000&q=80&auto=format&fit=crop" alt="Transport" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROLNICTWO -->
+    <section class="industry-section">
+      <div class="container">
+        <div class="industry-detail-grid reverse">
+          <div>
+            <div class="industry-detail-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L8 8h8l-4-6zM4 12c0-2 2-4 4-4M20 12c0-2-2-4-4-4M6 22h12M9 22V12M15 22V12M3 18h18"/></svg>
+            </div>
+            <span class="eyebrow">Rolnictwo</span>
+            <h2>Niezawodne rozwiązania dla gospodarstw</h2>
+            <p>Chemia techniczna dla nowoczesnego rolnictwa — utrzymanie maszyn rolniczych w najlepszej kondycji, niezależnie od warunków pracy.</p>
+            <div class="feature-list">
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Smarowanie maszyn</h4><p>Smary do ciągników, kombajnów i osprzętu rolniczego.</p></div>
+              </div>
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Hydraulika i oleje</h4><p>Wysokowydajne oleje hydrauliczne i przekładniowe.</p></div>
+              </div>
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Mycie i konserwacja</h4><p>Środki do mycia maszyn rolniczych i preparaty antykorozyjne.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="industry-detail-image">
+            <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1000&q=80&auto=format&fit=crop" alt="Rolnictwo" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUDOWNICTWO -->
+    <section class="industry-section">
+      <div class="container">
+        <div class="industry-detail-grid">
+          <div>
+            <div class="industry-detail-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h2M13 9h2M9 13h2M13 13h2M9 17h2M13 17h2"/></svg>
+            </div>
+            <span class="eyebrow">Budownictwo</span>
+            <h2>Chemia do zadań specjalnych</h2>
+            <p>Profesjonalne preparaty chemiczne dla branży budowlanej — od czyszczenia narzędzi po konserwację sprzętu i maszyn budowlanych.</p>
+            <div class="feature-list">
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Czyszczenie narzędzi i sprzętu</h4><p>Środki do usuwania zaschniętej zaprawy, betonu i innych zabrudzeń budowlanych.</p></div>
+              </div>
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Konserwacja maszyn</h4><p>Smary i preparaty ochronne do koparek, betoniarek i innych urządzeń.</p></div>
+              </div>
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Środki antyadhezyjne</h4><p>Preparaty zapobiegające przyleganiu materiałów budowlanych do form i narzędzi.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="industry-detail-image">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1000&q=80&auto=format&fit=crop" alt="Budownictwo" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USŁUGI TECHNICZNE -->
+    <section class="industry-section">
+      <div class="container">
+        <div class="industry-detail-grid reverse">
+          <div>
+            <div class="industry-detail-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <span class="eyebrow">Usługi techniczne</span>
+            <h2>Dla profesjonalistów i wykonawców</h2>
+            <p>Szeroka oferta dla firm świadczących usługi techniczne — serwisy, instalatorzy, ekipy konserwatorskie i inne zespoły terenowe.</p>
+            <div class="feature-list">
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Chemia specjalistyczna</h4><p>Preparaty do nietypowych zastosowań i trudnych powierzchni.</p></div>
+              </div>
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Pakiety usługowe</h4><p>Zestawy chemii dla ekip serwisowych pracujących w terenie.</p></div>
+              </div>
+              <div class="feature-list-item">
+                <div class="icon-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="feature-list-item-text"><h4>Wsparcie doradcze</h4><p>Pomożemy dobrać produkty dopasowane do konkretnych zleceń.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="industry-detail-image">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1000&q=80&auto=format&fit=crop" alt="Usługi techniczne" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="banner">
+          <span class="eyebrow">Inna branża?</span>
+          <h2>Pracujesz w innym sektorze?</h2>
+          <p>Mamy chemię do prawie każdego zastosowania. Opowiedz nam o swoich potrzebach — znajdziemy rozwiązanie.</p>
+          <div class="banner-ctas">
+            <a href="kontakt.html" class="btn btn-primary">Porozmawiajmy<span class="arrow">→</span></a>
+            <a href="produkty.html" class="btn btn-secondary">Pełna oferta</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-slot"></div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

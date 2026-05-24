@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Katalog produktów FRANZA GROUP — chemia techniczna, smary, oleje, środki czyszczące dla przemysłu i motoryzacji.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Produkty — FRANZA GROUP</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <style>
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.625rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .filter-btn {
+      padding: 0.625rem 1.25rem;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      transition: all var(--transition);
+    }
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .filter-btn.active {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .product-card[data-category] {
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    .product-card.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-slot"></div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a href="../index.html">Strona główna</a>
+          <span class="separator">/</span>
+          <span>Produkty</span>
+        </div>
+        <span class="eyebrow">Nasza oferta</span>
+        <h1>Katalog produktów</h1>
+        <p>Ponad 1000 produktów chemii technicznej — od własnej marki FRANZA po renomowane marki światowe. Wybierz kategorię, żeby zobaczyć szczegóły.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <!-- Wyszukiwarka -->
+        <div class="product-search">
+          <span class="product-search-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </span>
+          <input type="search" id="productSearch" placeholder="Szukaj produktu (np. SPILL, LUBE, CLEANER)…" aria-label="Wyszukaj produkt">
+          <button type="button" class="product-search-clear" id="productSearchClear" aria-label="Wyczyść wyszukiwanie">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="filter-bar" id="filterBar">
+          <button class="filter-btn active" data-filter="all">Wszystkie</button>
+          <button class="filter-btn" data-filter="sorbenty">Sorbenty</button>
+          <button class="filter-btn" data-filter="czyszczace">Środki czyszczące</button>
+          <button class="filter-btn" data-filter="smary">Smary i oleje</button>
+          <button class="filter-btn" data-filter="ochrona">Konserwacja</button>
+          <button class="filter-btn" data-filter="motoryzacja">Motoryzacja</button>
+          <button class="filter-btn" data-filter="specjalistyczne">Specjalistyczne</button>
+        </div>
+
+        <div class="no-results-message" id="noResultsMessage">
+          <strong>Brak wyników</strong>
+          Spróbuj innego hasła lub wybierz inną kategorię.
+        </div>
+
+        <div class="card-grid cols-3" id="productGrid">
+          <!-- Linia SPILL MAT - flagowe produkty FRANZA (zdjęcia z folderu klienta) -->
+          <div class="card product-card" data-category="sorbenty">
+            <div class="card-image">
+              <img src="../assets/products/spill-mat.jpg" alt="SPILL MAT O&G Premium — arkusze sorbentowe" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · O&G PREMIUM</span>
+              <h3>SPILL MAT — arkusze</h3>
+              <p>Maty sorbentowe do olejów i paliw — arkusze 40×50 cm, 100 szt./opak. Absorbcja 81–112 L. Hydrofobowe, niepalne, pływające.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="sorbenty">
+            <div class="card-image">
+              <img src="../assets/products/spill-roll.jpg" alt="SPILL ROLL O&G Premium — rolka sorbentu" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · O&G PREMIUM</span>
+              <h3>SPILL ROLL — rolka</h3>
+              <p>Sorbent w rolce 50 cm × 44 m, perforacja co 25 cm. Absorbcja 91–124 L. Idealny do zabezpieczeń dużych powierzchni.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="sorbenty">
+            <div class="card-image">
+              <img src="../assets/products/spill-barrel.jpg" alt="SPILL BARREL O&G Premium — maty na beczkę 210L" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · O&G PREMIUM</span>
+              <h3>SPILL BARREL — na beczkę 210 L</h3>
+              <p>Okrągłe maty sorbentowe ⌀ 55 cm, 25 szt./opak. Dopasowane do beczek 210 L. Absorbcja do 25 L olejów i paliw.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <!-- Nowa linia FRANZA: spray'e, smary, środki czyszczące -->
+          <div class="card product-card" data-category="smary">
+            <div class="card-image">
+              <img src="../assets/products/seize-x-spray.jpg" alt="FRANZA SEIZE X SPRAY — pianowy penetrant smarny z PTFE" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · NOWOŚĆ</span>
+              <h3>SEIZE X SPRAY</h3>
+              <p>Pianowy penetrant smarny z PTFE — penetruje, smaruje i chroni w jednym. Idealny do montażu, demontażu i konserwacji.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="smary">
+            <div class="card-image">
+              <img src="../assets/products/seize-y-spray.jpg" alt="FRANZA SEIZE Y SPRAY — penetrant smarny z MoS2" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · NOWOŚĆ</span>
+              <h3>SEIZE Y SPRAY</h3>
+              <p>Penetrant smarny z MoS₂ (dwusiarczek molibdenu) — wysoka odporność na obciążenia i temperaturę, idealny do trudnych warunków.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="smary">
+            <div class="card-image">
+              <img src="../assets/products/fr-lube-up.jpg" alt="FRANZA FR LUBE UP — smar do łańcuchów i lin" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · NOWOŚĆ</span>
+              <h3>FR LUBE UP</h3>
+              <p>Specjalistyczny smar do łańcuchów i lin. Długotrwała ochrona, doskonała przyczepność, odporność na wymywanie.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="czyszczace">
+            <div class="card-image">
+              <img src="../assets/products/fr-liquid-cleaner.jpg" alt="FRANZA FR LIQUID CLEANER — niskopieniący preparat odtłuszczająco-myjący 25L" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · 25 L</span>
+              <h3>FR LIQUID CLEANER</h3>
+              <p>Niskopieniący preparat odtłuszczająco-myjący. Skuteczny do mycia hal, posadzek, urządzeń przemysłowych. Opakowanie 25 L.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="motoryzacja">
+            <div class="card-image">
+              <img src="../assets/products/fr-bulk-brake-cleaner.jpg" alt="FRANZA FR BULK BRAKE CLEANER — zmywacz, benzyna ekstrakcyjna niskoaromatyczna 5L" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · 5 L</span>
+              <h3>FR BULK BRAKE CLEANER</h3>
+              <p>Zmywacz na bazie benzyny ekstrakcyjnej niskoaromatycznej. Profesjonalne czyszczenie układów hamulcowych i części metalowych. 5 L.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <!-- Linia zmywaczy profesjonalnych FRANZA -->
+          <div class="card product-card" data-category="czyszczace">
+            <div class="card-image">
+              <img src="../assets/products/fr-102-spray.jpg" alt="FRANZA FR 102 SPRAY — zmywacz specjalistyczny" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · NOWOŚĆ</span>
+              <h3>FR 102 SPRAY</h3>
+              <p>Specjalistyczny zmywacz w aerozolu do trudnych zabrudzeń przemysłowych. Skuteczny przy klejach, smarach i osadach produkcyjnych.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="czyszczace">
+            <div class="card-image">
+              <img src="../assets/products/fr-cat-strong.jpg" alt="FRANZA FR CAT STRONG — silny zmywacz profesjonalny" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · NOWOŚĆ</span>
+              <h3>FR CAT STRONG</h3>
+              <p>Silny zmywacz profesjonalny do najtrudniejszych zanieczyszczeń — żywic, klejów, lakierów i osadów technicznych. Działa szybko i wydajnie.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="czyszczace">
+            <div class="card-image">
+              <img src="../assets/products/fr-lion-claw.jpg" alt="FRANZA FR LION CLAW — zmywacz techniczny" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · NOWOŚĆ</span>
+              <h3>FR LION CLAW</h3>
+              <p>Zmywacz techniczny do czyszczenia powierzchni przemysłowych. Usuwa oleje, smary, tłuszcze i zabrudzenia produkcyjne.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <!-- Linia odtłuszczaczy przemysłowych FRANZA -->
+          <div class="card product-card" data-category="czyszczace">
+            <div class="card-image">
+              <img src="../assets/products/fr-safety-al.jpg" alt="FRANZA FR SAFETY AL — odtłuszczacz z inhibitorem korozji 25L" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · 25 L</span>
+              <h3>FR SAFETY AL</h3>
+              <p>Niskopieniący preparat odtłuszczająco-myjący z inhibitorem korozji. Bezpieczny dla aluminium i metali kolorowych. Zakres pracy 40–60°C.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="czyszczace">
+            <div class="card-image">
+              <img src="../assets/products/fr-np700.jpg" alt="FRANZA FR NP700 — neutralny niskopieniący odtłuszczacz 20L" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · EKO · 20 L</span>
+              <h3>FR NP700</h3>
+              <p>Neutralny niskopieniący preparat odtłuszczająco-myjący. Skuteczny w mycia ręcznym i maszynowym, nie uszkadza powierzchni lakierowanych ani aluminium.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="czyszczace">
+            <div class="card-image">
+              <img src="../assets/products/fr-biostar.jpg" alt="FRANZA FR BIOSTAR — biodegradowalny alkaliczny odtłuszczacz 25L" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · EKO · 25 L</span>
+              <h3>FR BIOSTAR</h3>
+              <p>Biodegradowalny alkaliczny preparat odtłuszczający. Skutecznie usuwa oleje, smary i tłuszcze. Ekologiczna alternatywa dla rozpuszczalników.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="czyszczace">
+            <div class="card-image">
+              <img src="../assets/products/fr-nixon-zet.jpg" alt="FRANZA FR NIXON ZET — silnie alkaliczny odtłuszczacz 25L" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · 25 L</span>
+              <h3>FR NIXON ZET</h3>
+              <p>Silnie alkaliczny preparat odtłuszczająco-myjący do najtrudniejszych zanieczyszczeń przemysłowych. Wysokostężony koncentrat.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="czyszczace">
+            <div class="card-image">
+              <img src="../assets/products/fr-pure-power.jpg" alt="FRANZA FR PURE POWER — preparat czyszczący" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · NOWOŚĆ</span>
+              <h3>FR PURE POWER</h3>
+              <p>Wysokoskuteczny preparat czyszczący do trudnych zabrudzeń. Działa na olejach, smarach i nagarach przemysłowych.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="czyszczace">
+            <div class="card-image">
+              <img src="../assets/products/fr-camino-rs.jpg" alt="FRANZA FR CAMINO RS — preparat specjalistyczny" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · NOWOŚĆ</span>
+              <h3>FR CAMINO RS</h3>
+              <p>Specjalistyczny preparat do czyszczenia powierzchni i konserwacji urządzeń technicznych.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="specjalistyczne">
+            <div class="card-image">
+              <img src="../assets/products/fr-power-red-solvent.jpg" alt="FRANZA FR POWER RED SOLVENT — rozpuszczalnik specjalistyczny" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · NOWOŚĆ</span>
+              <h3>FR POWER RED SOLVENT</h3>
+              <p>Specjalistyczny rozpuszczalnik do trudnych zabrudzeń. Skuteczny przy farbach, lakierach, klejach i osadach żywic.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="specjalistyczne">
+            <div class="card-image">
+              <img src="../assets/products/fr-hwp-800.jpg" alt="FRANZA FR HWP 800 — preparat techniczny w wiadrze 10kg" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · 10 KG</span>
+              <h3>FR HWP 800</h3>
+              <p>Specjalistyczny preparat do zastosowań technicznych. Opakowanie 10 kg w wiadrze, idealne do większych zakładów i serwisów.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="smary">
+            <div class="card-image">
+              <img src="../assets/products/fr-marine-hk.jpg" alt="FRANZA FR MARINE HK — smar morski" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · NOWOŚĆ</span>
+              <h3>FR MARINE HK</h3>
+              <p>Specjalistyczny smar morski (marine grease) odporny na działanie słonej wody. Idealny do jachtów, łodzi i urządzeń pracujących w warunkach morskich.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+        
+        </div>
+      </div>
+    </section>
+
+    <section style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="banner">
+          <span class="eyebrow">Nie znalazłeś produktu?</span>
+          <h2>Mamy ponad 1000 produktów</h2>
+          <p>To tylko wycinek naszej oferty. Skontaktuj się z nami, a doradzimy i prześlemy pełen katalog.</p>
+          <div class="banner-ctas">
+            <a href="kontakt.html" class="btn btn-primary">Zapytaj o pełny katalog<span class="arrow">→</span></a>
+            <a href="marki.html" class="btn btn-secondary">Zobacz marki</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal produktu -->
+  <div class="product-modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle" aria-hidden="true">
+    <div class="product-modal">
+      <button class="product-modal-close" id="productModalClose" aria-label="Zamknij okno produktu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="product-modal-image" id="productModalImage"></div>
+      <div class="product-modal-body">
+        <span class="card-tag" id="productModalTag"></span>
+        <h2 id="productModalTitle"></h2>
+        <p id="productModalDesc"></p>
+        <div class="product-modal-actions">
+          <a href="#" class="btn btn-primary" id="productModalCta">
+            Zapytaj o ten produkt
+            <span class="arrow">→</span>
+          </a>
+          <a href="tel:+48606275785" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Zadzwoń
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-slot"></div>
+  <script src="../js/main.js"></script>
+
+  <script>
+    // === Wyszukiwarka + filtry kategorii (połączone) ===
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+    const searchInput = document.getElementById('productSearch');
+    const searchClear = document.getElementById('productSearchClear');
+    const noResultsMsg = document.getElementById('noResultsMessage');
+
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    const normalize = (str) => str.toLowerCase().trim().replace(/\s+/g, ' ');
+
+    const applyFilters = () => {
+      const query = normalize(searchQuery);
+      let visibleCount = 0;
+
+      productCards.forEach((card) => {
+        const category = card.dataset.category;
+        const text = normalize(card.textContent);
+
+        const matchesCategory = activeCategory === 'all' || category === activeCategory;
+        const matchesSearch = !query || text.includes(query);
+
+        if (matchesCategory && matchesSearch) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      noResultsMsg.classList.toggle('visible', visibleCount === 0);
+    };
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCategory = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      searchClear.classList.toggle('visible', searchQuery.length > 0);
+      applyFilters();
+    });
+
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      searchClear.classList.remove('visible');
+      applyFilters();
+      searchInput.focus();
+    });
+
+    // === Modal produktu ===
+    const modal = document.getElementById('productModal');
+    const modalClose = document.getElementById('productModalClose');
+    const modalImage = document.getElementById('productModalImage');
+    const modalTag = document.getElementById('productModalTag');
+    const modalTitle = document.getElementById('productModalTitle');
+    const modalDesc = document.getElementById('productModalDesc');
+    const modalCta = document.getElementById('productModalCta');
+
+    const openModal = (card) => {
+      const img = card.querySelector('.card-image img');
+      const tag = card.querySelector('.card-tag');
+      const title = card.querySelector('h3');
+      const desc = card.querySelector('p');
+
+      modalImage.innerHTML = '';
+      if (img) {
+        const clone = img.cloneNode(true);
+        clone.removeAttribute('loading');
+        modalImage.appendChild(clone);
+      }
+      modalTag.textContent = tag ? tag.textContent : '';
+      modalTitle.textContent = title ? title.textContent : '';
+      modalDesc.textContent = desc ? desc.textContent : '';
+
+      const productName = encodeURIComponent(title ? title.textContent.trim() : '');
+      modalCta.href = `kontakt.html?produkt=${productName}#contactForm`;
+
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    productCards.forEach((card) => {
+      card.addEventListener('click', (e) => {
+        // Nie otwieraj modalu jeśli kliknięto link wewnątrz karty
+        if (e.target.closest('a:not(.btn-ghost)')) return;
+        openModal(card);
+      });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+  </script>
+</body>
+</html>

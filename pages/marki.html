@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Marki w ofercie FRANZA GROUP — FRANZA Chemicals (produkcja własna) oraz dystrybucja Mannol, Xton, Orapi, NCH Europe.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Marki — FRANZA GROUP</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <style>
+    .brand-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-section:nth-child(even) {
+      background-color: var(--bg-secondary);
+    }
+    .brand-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .brand-detail-grid {
+        grid-template-columns: 1fr 1.2fr;
+      }
+      .brand-detail-grid.reverse .brand-detail-text {
+        order: 2;
+      }
+    }
+    .brand-detail-logo {
+      display: flex;
+      align-items: center;
+      height: 80px;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .brand-detail-text h2 {
+      margin-bottom: 1rem;
+    }
+    .brand-detail-text p {
+      margin-bottom: 1rem;
+    }
+    .brand-detail-image {
+      aspect-ratio: 4/3;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .brand-detail-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .brand-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+    .brand-tag {
+      padding: 0.375rem 0.875rem;
+      background-color: rgba(255, 107, 26, 0.1);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 100px;
+    }
+    .brand-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-slot"></div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a href="../index.html">Strona główna</a>
+          <span class="separator">/</span>
+          <span>Marki</span>
+        </div>
+        <span class="eyebrow">Nasza marka i partnerzy</span>
+        <h1>Marki w naszej ofercie</h1>
+        <p>Nasza flagowa marka FRANZA — produkowana w Polsce — uzupełniona o dystrybucję czterech renomowanych producentów chemii technicznej z całego świata.</p>
+      </div>
+    </section>
+
+    <!-- FRANZA -->
+    <section class="brand-section" id="franza">
+      <div class="container">
+        <div class="brand-detail-grid">
+          <div class="brand-detail-text">
+            <div class="brand-detail-logo" style="height: auto; margin-bottom: 1.5rem;">
+              <img src="../assets/logo/franza-atom.png" alt="FRANZA Chemical Solution" style="max-height: 110px; width: auto;">
+            </div>
+            <span class="eyebrow">Polska produkcja — marka wiodąca</span>
+            <h2>FRANZA Chemical Solution</h2>
+            <p>Nasza własna marka chemii technicznej, produkowana w Polsce z myślą o profesjonalistach. Oferujemy szeroki asortyment środków czyszczących, smarów, preparatów konserwujących, sorbentów oraz chemii specjalistycznej.</p>
+            <p>Pełna kontrola nad recepturami pozwala nam dostarczać produkty o powtarzalnej jakości i tworzyć rozwiązania na specjalne zamówienie. Linia flagowa: <strong style="color: var(--accent);">SPILL MAT O&amp;G Premium</strong> — maty sorbentowe do olejów i paliw.</p>
+            <div class="brand-tags">
+              <span class="brand-tag">Sorbenty SPILL MAT</span>
+              <span class="brand-tag">Środki czyszczące</span>
+              <span class="brand-tag">Smary</span>
+              <span class="brand-tag">Konserwacja</span>
+              <span class="brand-tag">Specjalistyczne</span>
+            </div>
+            <div class="brand-ctas">
+              <a href="produkcja.html" class="btn btn-primary">Zobacz produkcję<span class="arrow">→</span></a>
+              <a href="produkty.html" class="btn btn-secondary">Katalog produktów</a>
+              <a href="../assets/folder-spill-mat-franza.pdf" download target="_blank" rel="noopener" class="btn btn-secondary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                Folder SPILL MAT
+              </a>
+            </div>
+          </div>
+          <div class="brand-detail-image" style="background-color: #fff;">
+            <img src="../assets/products/spill-roll.jpg" alt="FRANZA SPILL ROLL — flagowy produkt" loading="lazy" style="object-fit: contain; padding: 1rem;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORAPI -->
+    <section class="brand-section" id="orapi">
+      <div class="container">
+        <div class="brand-detail-grid reverse">
+          <div class="brand-detail-text">
+            <div class="brand-detail-logo">ORAPI</div>
+            <span class="eyebrow">Francja</span>
+            <h2>Profesjonalne czyszczenie i utrzymanie ruchu</h2>
+            <p>Orapi to francuski lider w produkcji specjalistycznych środków czyszczących, smarów i preparatów do utrzymania ruchu w przemyśle. Marka obecna w ponad 100 krajach na świecie.</p>
+            <p>Produkty Orapi znajdują zastosowanie w przemyśle spożywczym, motoryzacyjnym, transportowym oraz w zakładach produkcyjnych wymagających najwyższej jakości chemii technicznej.</p>
+            <div class="brand-tags">
+              <span class="brand-tag">Profesjonalne czyszczenie</span>
+              <span class="brand-tag">Smary techniczne</span>
+              <span class="brand-tag">Utrzymanie ruchu</span>
+            </div>
+            <div class="brand-ctas">
+              <a href="https://www.orapi.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Strona producenta<span class="arrow">↗</span></a>
+              <a href="kontakt.html" class="btn btn-secondary">Zapytaj o ofertę</a>
+            </div>
+          </div>
+          <div class="brand-detail-image">
+            <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=1000&q=80&auto=format&fit=crop" alt="Orapi" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANNOL -->
+    <section class="brand-section" id="mannol">
+      <div class="container">
+        <div class="brand-detail-grid">
+          <div class="brand-detail-text">
+            <div class="brand-detail-logo" style="color: #ffd400;">MANNOL</div>
+            <span class="eyebrow">Niemcy</span>
+            <h2>Oleje silnikowe i przekładniowe</h2>
+            <p>Mannol to niemiecki producent wysokiej jakości olejów silnikowych, przekładniowych, hydraulicznych oraz płynów eksploatacyjnych. Marka ceniona przez warsztaty i kierowców na całym świecie.</p>
+            <p>Pełna gama produktów dla motoryzacji osobowej, ciężarowej, motocyklowej i przemysłu. Doskonała relacja jakości do ceny.</p>
+            <div class="brand-tags">
+              <span class="brand-tag">Oleje silnikowe</span>
+              <span class="brand-tag">Oleje przekładniowe</span>
+              <span class="brand-tag">Płyny chłodnicze</span>
+              <span class="brand-tag">Hydraulika</span>
+            </div>
+            <div class="brand-ctas">
+              <a href="https://www.mannol.de" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Strona producenta<span class="arrow">↗</span></a>
+              <a href="kontakt.html" class="btn btn-secondary">Zapytaj o ofertę</a>
+            </div>
+          </div>
+          <div class="brand-detail-image">
+            <img src="https://images.unsplash.com/photo-1635179850894-8c5e6ad0c0e1?w=1000&q=80&auto=format&fit=crop" alt="Mannol" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NCH EUROPE -->
+    <section class="brand-section" id="nch">
+      <div class="container">
+        <div class="brand-detail-grid reverse">
+          <div class="brand-detail-text">
+            <div class="brand-detail-logo">
+              <span style="background:#0046a8;color:#fff;padding:.5rem 1.5rem;border-radius:8px;font-size:2rem;">NCH Europe</span>
+            </div>
+            <span class="eyebrow">Europa</span>
+            <h2>Globalne rozwiązania dla utrzymania ruchu</h2>
+            <p>NCH Europe to europejski oddział NCH Corporation — firmy z ponad 100-letnim doświadczeniem w produkcji chemii dla utrzymania ruchu, uzdatniania wody, gospodarki odpadami i konserwacji infrastruktury.</p>
+            <p>Produkty NCH Europe wyróżnia zaawansowana technologia i wysoka skuteczność. Wykorzystywane są w przemyśle produkcyjnym, energetyce, gospodarce komunalnej i wielu innych sektorach przemysłu.</p>
+            <div class="brand-tags">
+              <span class="brand-tag">Utrzymanie ruchu</span>
+              <span class="brand-tag">Uzdatnianie wody</span>
+              <span class="brand-tag">Gospodarka odpadami</span>
+              <span class="brand-tag">Chemia przemysłowa</span>
+            </div>
+            <div class="brand-ctas">
+              <a href="https://www.ncheurope.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Strona producenta<span class="arrow">↗</span></a>
+              <a href="kontakt.html" class="btn btn-secondary">Zapytaj o ofertę</a>
+            </div>
+          </div>
+          <div class="brand-detail-image">
+            <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=1000&q=80&auto=format&fit=crop" alt="NCH Europe" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- XTON -->
+    <section class="brand-section" id="xton">
+      <div class="container">
+        <div class="brand-detail-grid">
+          <div class="brand-detail-text">
+            <div class="brand-detail-logo">
+              <span style="border:3px solid currentColor;padding:.5rem 1.5rem;border-radius:8px;font-size:2rem;">XTON</span>
+            </div>
+            <span class="eyebrow">Międzynarodowy</span>
+            <h2>Specjalistyczna chemia techniczna</h2>
+            <p>Xton to marka specjalistycznych preparatów chemicznych przeznaczonych do trudnych zastosowań w przemyśle, motoryzacji i produkcji. Skuteczność tam, gdzie standardowe produkty zawodzą.</p>
+            <p>Oferta obejmuje rozpuszczalniki, środki czyszczące, preparaty konserwujące oraz chemię techniczną do zastosowań niestandardowych.</p>
+            <div class="brand-tags">
+              <span class="brand-tag">Chemia specjalistyczna</span>
+              <span class="brand-tag">Rozpuszczalniki</span>
+              <span class="brand-tag">Trudne zastosowania</span>
+            </div>
+            <div class="brand-ctas">
+              <a href="https://www.xton.eu" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Strona producenta<span class="arrow">↗</span></a>
+              <a href="kontakt.html" class="btn btn-secondary">Zapytaj o ofertę</a>
+            </div>
+          </div>
+          <div class="brand-detail-image">
+            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1000&q=80&auto=format&fit=crop" alt="Xton" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="banner">
+          <span class="eyebrow">Twoja branża, nasze rozwiązanie</span>
+          <h2>Nie wiesz, którą markę wybrać?</h2>
+          <p>Doradzimy, którą markę i produkt najlepiej dobrać do Twoich potrzeb. Wystarczy jeden telefon.</p>
+          <div class="banner-ctas">
+            <a href="kontakt.html" class="btn btn-primary">Porozmawiajmy<span class="arrow">→</span></a>
+            <a href="produkty.html" class="btn btn-secondary">Pełen katalog</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-slot"></div>
+  <script src="../js/main.js"></script>
+</body>
+</html>
