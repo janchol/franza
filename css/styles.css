@@ -1200,6 +1200,23 @@ section {
   margin-bottom: 1rem;
 }
 
+/* Podtytuł produktu (krótki opis kategorii pod tytułem) */
+.card-subtitle {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: -0.25rem 0 1rem;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* W modalu większy podtytuł */
+.product-modal-body .card-subtitle {
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+
 /* === Brand detail cards === */
 .brand-card {
   display: flex;
@@ -1868,6 +1885,24 @@ textarea.form-control {
   place-items: center;
   padding: 2rem;
   min-height: 280px;
+}
+
+/* Modal image placeholder (gdy nie ma zdjęcia produktu) */
+.product-modal-image.image-placeholder {
+  background:
+    linear-gradient(135deg, rgba(255, 107, 26, 0.15), rgba(255, 107, 26, 0)),
+    repeating-linear-gradient(
+      45deg,
+      var(--bg-card),
+      var(--bg-card) 12px,
+      var(--bg-tertiary) 12px,
+      var(--bg-tertiary) 24px
+    );
+}
+
+.product-modal-image.image-placeholder::before {
+  font-size: clamp(3rem, 10vw, 5rem);
+  opacity: 0.5;
 }
 
 .product-modal-image img {

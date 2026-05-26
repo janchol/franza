@@ -83,12 +83,11 @@
 
         <div class="filter-bar" id="filterBar">
           <button class="filter-btn active" data-filter="all">Wszystkie</button>
+          <button class="filter-btn" data-filter="wodorozcienczalne">Wodorozcieńczalne</button>
+          <button class="filter-btn" data-filter="smarne">Smarne i odrdzewiające</button>
+          <button class="filter-btn" data-filter="zmywacze">Zmywacze i odtłuszczacze</button>
+          <button class="filter-btn" data-filter="higiena">Higiena</button>
           <button class="filter-btn" data-filter="sorbenty">Sorbenty</button>
-          <button class="filter-btn" data-filter="czyszczace">Środki czyszczące</button>
-          <button class="filter-btn" data-filter="smary">Smary i oleje</button>
-          <button class="filter-btn" data-filter="ochrona">Konserwacja</button>
-          <button class="filter-btn" data-filter="motoryzacja">Motoryzacja</button>
-          <button class="filter-btn" data-filter="specjalistyczne">Specjalistyczne</button>
         </div>
 
         <div class="no-results-message" id="noResultsMessage">
@@ -97,246 +96,298 @@
         </div>
 
         <div class="card-grid cols-3" id="productGrid">
-          <!-- Linia SPILL MAT - flagowe produkty FRANZA (zdjęcia z folderu klienta) -->
-          <div class="card product-card" data-category="sorbenty">
-            <div class="card-image">
-              <img src="../assets/products/spill-mat.jpg" alt="SPILL MAT O&G Premium — arkusze sorbentowe" loading="lazy">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">FRANZA · O&G PREMIUM</span>
-              <h3>SPILL MAT — arkusze</h3>
-              <p>Maty sorbentowe do olejów i paliw — arkusze 40×50 cm, 100 szt./opak. Absorbcja 81–112 L. Hydrofobowe, niepalne, pływające.</p>
-              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
-            </div>
-          </div>
+          <!-- ============================================
+               PRODUKTY FRANZA — opisy 1:1 z folderu klienta
+               ============================================ -->
 
-          <div class="card product-card" data-category="sorbenty">
-            <div class="card-image">
-              <img src="../assets/products/spill-roll.jpg" alt="SPILL ROLL O&G Premium — rolka sorbentu" loading="lazy">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">FRANZA · O&G PREMIUM</span>
-              <h3>SPILL ROLL — rolka</h3>
-              <p>Sorbent w rolce 50 cm × 44 m, perforacja co 25 cm. Absorbcja 91–124 L. Idealny do zabezpieczeń dużych powierzchni.</p>
-              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
-            </div>
-          </div>
+          <!-- ════════ PREPARATY WODOROZCIEŃCZALNE (1-9) ════════ -->
 
-          <div class="card product-card" data-category="sorbenty">
+          <div class="card product-card" data-category="wodorozcienczalne">
             <div class="card-image">
-              <img src="../assets/products/spill-barrel.jpg" alt="SPILL BARREL O&G Premium — maty na beczkę 210L" loading="lazy">
+              <img src="../assets/products/fr-liquid-cleaner.jpg" alt="FRANZA FR LIQUID CLEANER" loading="lazy">
             </div>
             <div class="card-body">
-              <span class="card-tag">FRANZA · O&G PREMIUM</span>
-              <h3>SPILL BARREL — na beczkę 210 L</h3>
-              <p>Okrągłe maty sorbentowe ⌀ 55 cm, 25 szt./opak. Dopasowane do beczek 210 L. Absorbcja do 25 L olejów i paliw.</p>
-              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
-            </div>
-          </div>
-
-          <!-- Nowa linia FRANZA: spray'e, smary, środki czyszczące -->
-          <div class="card product-card" data-category="smary">
-            <div class="card-image">
-              <img src="../assets/products/seize-x-spray.jpg" alt="FRANZA SEIZE X SPRAY — pianowy penetrant smarny z PTFE" loading="lazy">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">FRANZA · NOWOŚĆ</span>
-              <h3>SEIZE X SPRAY</h3>
-              <p>Pianowy penetrant smarny z PTFE — penetruje, smaruje i chroni w jednym. Idealny do montażu, demontażu i konserwacji.</p>
-              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
-            </div>
-          </div>
-
-          <div class="card product-card" data-category="smary">
-            <div class="card-image">
-              <img src="../assets/products/seize-y-spray.jpg" alt="FRANZA SEIZE Y SPRAY — penetrant smarny z MoS2" loading="lazy">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">FRANZA · NOWOŚĆ</span>
-              <h3>SEIZE Y SPRAY</h3>
-              <p>Penetrant smarny z MoS₂ (dwusiarczek molibdenu) — wysoka odporność na obciążenia i temperaturę, idealny do trudnych warunków.</p>
-              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
-            </div>
-          </div>
-
-          <div class="card product-card" data-category="smary">
-            <div class="card-image">
-              <img src="../assets/products/fr-lube-up.jpg" alt="FRANZA FR LUBE UP — smar do łańcuchów i lin" loading="lazy">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">FRANZA · NOWOŚĆ</span>
-              <h3>FR LUBE UP</h3>
-              <p>Specjalistyczny smar do łańcuchów i lin. Długotrwała ochrona, doskonała przyczepność, odporność na wymywanie.</p>
-              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
-            </div>
-          </div>
-
-          <div class="card product-card" data-category="czyszczace">
-            <div class="card-image">
-              <img src="../assets/products/fr-liquid-cleaner.jpg" alt="FRANZA FR LIQUID CLEANER — niskopieniący preparat odtłuszczająco-myjący 25L" loading="lazy">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">FRANZA · 25 L</span>
+              <span class="card-tag">FRANZA · WODOROZCIEŃCZALNY</span>
               <h3>FR LIQUID CLEANER</h3>
-              <p>Niskopieniący preparat odtłuszczająco-myjący. Skuteczny do mycia hal, posadzek, urządzeń przemysłowych. Opakowanie 25 L.</p>
+              <p class="card-subtitle">Nisko pieniący preparat odtłuszczająco-myjący</p>
+              <p>Silny, wysoce zasadowy preparat do gruntownego czyszczenia powierzchni z użyciem automatów myjących, myjek ciśnieniowych, a także do mycia ręcznego. Usuwa tłusty, zaschnięty brud ze ścian i podłóg, olej, smar, sadzę, atrament, nagary — świetnie rozpuszcza żywicę tartaczną. Idealny do powierzchni metalowych (włączając stal nierdzewną). Skuteczny w zabrudzeniach przemysłowych. Łatwy do spłukania. Szybko działający. Wysoce skoncentrowany i ekonomiczny. Skuteczny nawet w niskich stężeniach.</p>
               <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
             </div>
           </div>
 
-          <div class="card product-card" data-category="motoryzacja">
+          <div class="card product-card" data-category="wodorozcienczalne">
             <div class="card-image">
-              <img src="../assets/products/fr-bulk-brake-cleaner.jpg" alt="FRANZA FR BULK BRAKE CLEANER — zmywacz, benzyna ekstrakcyjna niskoaromatyczna 5L" loading="lazy">
+              <img src="../assets/products/fr-camino-ns.jpg" alt="FRANZA FR CAMINO NS" loading="lazy">
             </div>
             <div class="card-body">
-              <span class="card-tag">FRANZA · 5 L</span>
-              <h3>FR BULK BRAKE CLEANER</h3>
-              <p>Zmywacz na bazie benzyny ekstrakcyjnej niskoaromatycznej. Profesjonalne czyszczenie układów hamulcowych i części metalowych. 5 L.</p>
+              <span class="card-tag">FRANZA · PRZEMYSŁ SPOŻYWCZY</span>
+              <h3>FR CAMINO NS</h3>
+              <p class="card-subtitle">Nisko pieniący preparat odtłuszczająco-myjący do przemysłu spożywczego</p>
+              <p>Mocno skoncentrowany nisko pieniący preparat do ręcznego i maszynowego mycia silnie zabrudzonych powierzchni. Do stosowania w przemyśle spożywczym. Bezzapachowy. Nie uszkadza powierzchni niklowanych, stalowych, emaliowanych i aluminiowych. Stosować roztwór rozcieńczony w wodzie. Skuteczny nawet w niskich stężeniach. Do mycia maszyn, chłodni, magazynów, podłóg z betonu, klinkieru, kamienia naturalnego oraz materiałów syntetycznych, powierzchni malowanych, lakierowanych w zakładach spożywczych. Doskonały do mycia hal sportowych, ośrodków sportowo-rekreacyjnych, usuwa ślady po gumie i kleju stosowanym przez szczypiornistów.</p>
               <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
             </div>
           </div>
 
-          <!-- Linia zmywaczy profesjonalnych FRANZA -->
-          <div class="card product-card" data-category="czyszczace">
+          <div class="card product-card" data-category="wodorozcienczalne">
             <div class="card-image">
-              <img src="../assets/products/fr-102-spray.jpg" alt="FRANZA FR 102 SPRAY — zmywacz specjalistyczny" loading="lazy">
+              <img src="../assets/products/fr-safety-al.jpg" alt="FRANZA FR SAFETY AL" loading="lazy">
             </div>
             <div class="card-body">
-              <span class="card-tag">FRANZA · NOWOŚĆ</span>
-              <h3>FR 102 SPRAY</h3>
-              <p>Specjalistyczny zmywacz w aerozolu do trudnych zabrudzeń przemysłowych. Skuteczny przy klejach, smarach i osadach produkcyjnych.</p>
-              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
-            </div>
-          </div>
-
-          <div class="card product-card" data-category="czyszczace">
-            <div class="card-image">
-              <img src="../assets/products/fr-cat-strong.jpg" alt="FRANZA FR CAT STRONG — silny zmywacz profesjonalny" loading="lazy">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">FRANZA · NOWOŚĆ</span>
-              <h3>FR CAT STRONG</h3>
-              <p>Silny zmywacz profesjonalny do najtrudniejszych zanieczyszczeń — żywic, klejów, lakierów i osadów technicznych. Działa szybko i wydajnie.</p>
-              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
-            </div>
-          </div>
-
-          <div class="card product-card" data-category="czyszczace">
-            <div class="card-image">
-              <img src="../assets/products/fr-lion-claw.jpg" alt="FRANZA FR LION CLAW — zmywacz techniczny" loading="lazy">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">FRANZA · NOWOŚĆ</span>
-              <h3>FR LION CLAW</h3>
-              <p>Zmywacz techniczny do czyszczenia powierzchni przemysłowych. Usuwa oleje, smary, tłuszcze i zabrudzenia produkcyjne.</p>
-              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
-            </div>
-          </div>
-
-          <!-- Linia odtłuszczaczy przemysłowych FRANZA -->
-          <div class="card product-card" data-category="czyszczace">
-            <div class="card-image">
-              <img src="../assets/products/fr-safety-al.jpg" alt="FRANZA FR SAFETY AL — odtłuszczacz z inhibitorem korozji 25L" loading="lazy">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">FRANZA · 25 L</span>
+              <span class="card-tag">FRANZA · ALUMINIUM</span>
               <h3>FR SAFETY AL</h3>
-              <p>Niskopieniący preparat odtłuszczająco-myjący z inhibitorem korozji. Bezpieczny dla aluminium i metali kolorowych. Zakres pracy 40–60°C.</p>
+              <p class="card-subtitle">Nisko pieniący preparat myjący bezpieczny dla aluminium i metali lekkich</p>
+              <p>Silny, alkaliczny preparat do czyszczenia powierzchni wrażliwych. Do stosowania w myjkach z zamkniętym obiegiem płynu w temp. 40–80°C. Zawiera inhibitory korozji. Usuwa smary, nagary, tłuszcze zwierzęce i roślinne, sadzę i inne zanieczyszczenia przemysłowe. Idealny do metali lekkich, aluminiowych, cynku, tytanu itp. Szybko działający. Wysoce skoncentrowany i ekonomiczny (stężenia 2–5%).</p>
               <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
             </div>
           </div>
 
-          <div class="card product-card" data-category="czyszczace">
+          <div class="card product-card" data-category="wodorozcienczalne">
             <div class="card-image">
-              <img src="../assets/products/fr-np700.jpg" alt="FRANZA FR NP700 — neutralny niskopieniący odtłuszczacz 20L" loading="lazy">
+              <img src="../assets/products/fr-pure-power.jpg" alt="FRANZA FR PURE POWER" loading="lazy">
             </div>
             <div class="card-body">
-              <span class="card-tag">FRANZA · EKO · 20 L</span>
-              <h3>FR NP700</h3>
-              <p>Neutralny niskopieniący preparat odtłuszczająco-myjący. Skuteczny w mycia ręcznym i maszynowym, nie uszkadza powierzchni lakierowanych ani aluminium.</p>
-              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
-            </div>
-          </div>
-
-          <div class="card product-card" data-category="czyszczace">
-            <div class="card-image">
-              <img src="../assets/products/fr-biostar.jpg" alt="FRANZA FR BIOSTAR — biodegradowalny alkaliczny odtłuszczacz 25L" loading="lazy">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">FRANZA · EKO · 25 L</span>
-              <h3>FR BIOSTAR</h3>
-              <p>Biodegradowalny alkaliczny preparat odtłuszczający. Skutecznie usuwa oleje, smary i tłuszcze. Ekologiczna alternatywa dla rozpuszczalników.</p>
-              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
-            </div>
-          </div>
-
-          <div class="card product-card" data-category="czyszczace">
-            <div class="card-image">
-              <img src="../assets/products/fr-nixon-zet.jpg" alt="FRANZA FR NIXON ZET — silnie alkaliczny odtłuszczacz 25L" loading="lazy">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">FRANZA · 25 L</span>
-              <h3>FR NIXON ZET</h3>
-              <p>Silnie alkaliczny preparat odtłuszczająco-myjący do najtrudniejszych zanieczyszczeń przemysłowych. Wysokostężony koncentrat.</p>
-              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
-            </div>
-          </div>
-
-          <div class="card product-card" data-category="czyszczace">
-            <div class="card-image">
-              <img src="../assets/products/fr-pure-power.jpg" alt="FRANZA FR PURE POWER — preparat czyszczący" loading="lazy">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">FRANZA · NOWOŚĆ</span>
+              <span class="card-tag">FRANZA · NA ZIMNO</span>
               <h3>FR PURE POWER</h3>
-              <p>Wysokoskuteczny preparat czyszczący do trudnych zabrudzeń. Działa na olejach, smarach i nagarach przemysłowych.</p>
+              <p class="card-subtitle">Preparat do usuwania smoły i asfaltu na zimno</p>
+              <p>Silny odtłuszczacz „na zimno". Skutecznie czyści dzięki zawartości odpowiednich rozpuszczalników. Jest preparatem, który można używać w formie gotowej lub po rozcieńczeniu z wodą — wówczas gęstnieje, dzięki czemu dłużej utrzymuje się na czyszczonej powierzchni, a tym samym zwiększa się jego efektywność. Działa zarówno na suchych jak i mokrych powierzchniach. Może być spłukiwany wodą z dodatkiem środka alkalicznego.</p>
               <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
             </div>
           </div>
 
-          <div class="card product-card" data-category="czyszczace">
-            <div class="card-image">
-              <img src="../assets/products/fr-camino-rs.jpg" alt="FRANZA FR CAMINO RS — preparat specjalistyczny" loading="lazy">
-            </div>
+          <div class="card product-card" data-category="wodorozcienczalne">
+            <div class="card-image image-placeholder" aria-label="FRANZA FR INOX-AL — renowator kwasowy do aluminium"></div>
             <div class="card-body">
-              <span class="card-tag">FRANZA · NOWOŚĆ</span>
-              <h3>FR CAMINO RS</h3>
-              <p>Specjalistyczny preparat do czyszczenia powierzchni i konserwacji urządzeń technicznych.</p>
+              <span class="card-tag">FRANZA · KWASOWY · NOWOŚĆ</span>
+              <h3>FR INOX-AL</h3>
+              <p class="card-subtitle">Renowator kwasowy do aluminium</p>
+              <p>Antykorozyjny preparat do czyszczenia aluminium, jego stopów, metali lekkich oraz stali nierdzewnej. Posiada właściwości konserwujące, usuwa kamień, zaczyn cementowy i osady z kamienia. Mieszanka kwasów: fosforowego, solnego i fluorowodorowego. Znakomicie czyści zbiorniki paliw, burty, windy, węzły betoniarskie. Wytrawia po spawaniu. Zalecane stężenia 10%–30%.</p>
               <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
             </div>
           </div>
 
-          <div class="card product-card" data-category="specjalistyczne">
+          <div class="card product-card" data-category="wodorozcienczalne">
             <div class="card-image">
-              <img src="../assets/products/fr-power-red-solvent.jpg" alt="FRANZA FR POWER RED SOLVENT — rozpuszczalnik specjalistyczny" loading="lazy">
+              <img src="../assets/products/fr-np700.jpg" alt="FRANZA FR NP700" loading="lazy">
             </div>
             <div class="card-body">
-              <span class="card-tag">FRANZA · NOWOŚĆ</span>
-              <h3>FR POWER RED SOLVENT</h3>
-              <p>Specjalistyczny rozpuszczalnik do trudnych zabrudzeń. Skuteczny przy farbach, lakierach, klejach i osadach żywic.</p>
+              <span class="card-tag">FRANZA · EKO · NEUTRALNE pH</span>
+              <h3>FR NP700</h3>
+              <p class="card-subtitle">Koncentrat. Wodorozcieńczalny płyn do powierzchni przemysłowych i części mechanicznych. Neutralne pH</p>
+              <p>Skutecznie usuwa oleje, smary i osady. Nie działa korozyjnie na stal, nie uszkadza powierzchni — bezpieczny w stosowaniu. Związki powierzchniowe są biodegradowalne mając znikomy wpływ na środowisko — nadaje się do utylizacji w większości systemów ściekowych po rozcieńczeniu.</p>
               <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
             </div>
           </div>
 
-          <div class="card product-card" data-category="specjalistyczne">
+          <div class="card product-card" data-category="wodorozcienczalne">
             <div class="card-image">
-              <img src="../assets/products/fr-hwp-800.jpg" alt="FRANZA FR HWP 800 — preparat techniczny w wiadrze 10kg" loading="lazy">
+              <img src="../assets/products/fr-hwp-800.jpg" alt="FRANZA FR HWP 800" loading="lazy">
             </div>
             <div class="card-body">
-              <span class="card-tag">FRANZA · 10 KG</span>
+              <span class="card-tag">FRANZA · PROSZEK</span>
               <h3>FR HWP 800</h3>
-              <p>Specjalistyczny preparat do zastosowań technicznych. Opakowanie 10 kg w wiadrze, idealne do większych zakładów i serwisów.</p>
+              <p class="card-subtitle">Alkaliczny proszek do mycia maszynowego aluminium i metali kolorowych</p>
+              <p>Przeznaczony jest do mycia przedmiotów i części metalowych, maszyn, urządzeń, silników, sprzętu rolniczego, podwozi pojazdów itp. Skutecznie usuwa takie zabrudzenia jak: tłuszcze, oleje, smary, chłodziwa, pasty polerskie, zanieczyszczenia mechaniczne. Efektywnie zastępuje mycie ropą, benzyną, naftą i rozpuszczalnikami oraz eliminuje odtłuszczanie elektrolityczne. Znakomity w myjniach ciśnieniowych i ultradźwiękowych. Mycie ręczne i zanurzeniowe — roztwór 2–3% zależnie od stopnia zabrudzenia. Mycie natryskowe — roztwór 0,5–3% w zależności od ciśnienia. Temperatura roztworu myjącego w zakresie 20–80°C.</p>
               <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
             </div>
           </div>
 
-          <div class="card product-card" data-category="smary">
+          <div class="card product-card" data-category="wodorozcienczalne">
             <div class="card-image">
-              <img src="../assets/products/fr-marine-hk.jpg" alt="FRANZA FR MARINE HK — smar morski" loading="lazy">
+              <img src="../assets/products/fr-nixon-zet.jpg" alt="FRANZA FR NIXON ZET" loading="lazy">
             </div>
             <div class="card-body">
-              <span class="card-tag">FRANZA · NOWOŚĆ</span>
+              <span class="card-tag">FRANZA · PRZEMYSŁ CIĘŻKI</span>
+              <h3>FR NIXON ZET</h3>
+              <p class="card-subtitle">Alkaliczny średnio pieniący koncentrat do odtłuszczania w przemyśle</p>
+              <p>Umiarkowanie pieniący preparat o podwyższonej skuteczności rozpuszczania smarów, zanieczyszczeń drogowych i silnych zabrudzeń występujących w przemyśle ciężkim. Przeznaczony do czyszczenia cystern, wagonów kolejowych, siłowników hydraulicznych, maszyn itp. Stosowany wszędzie tam, gdzie występują najtrudniejsze do usunięcia zabrudzenia. Stosowany przy myciu ręcznym i ciśnieniowym. Doskonale sprawdza się w roli preparatu do sporządzania kąpieli odtłuszczających. pH 12,8 w koncentracie.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="wodorozcienczalne">
+            <div class="card-image">
+              <img src="../assets/products/fr-biostar.jpg" alt="FRANZA FR BIOSTAR" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · EKO · BIODEGRADOWALNY</span>
+              <h3>FR BIOSTAR</h3>
+              <p class="card-subtitle">Biodegradowalny alkaliczny preparat odtłuszczający</p>
+              <p>Uniwersalny, biodegradowalny preparat myjąco-odtłuszczający o wysokiej skuteczności działania. Przeznaczony jest do usuwania tłuszczów, olejów, sadzy, brudu ulicznego oraz soli drogowej z powierzchni takich jak elewacje, dachy, kostka brukowa i urządzenia przemysłowe. Preparat działa efektywnie nawet na wilgotnych powierzchniach, nie uszkadza tworzyw sztucznych i pozostawia połysk. Jest wysoko skoncentrowany i skuteczny już przy niskich stężeniach typu 1%. pH 13,1 w koncentracie.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <!-- ════════ PREPARATY SMARNE — ODRDZEWIAJĄCE (10-13) ════════ -->
+
+          <div class="card product-card" data-category="smarne">
+            <div class="card-image">
+              <img src="../assets/products/seize-y-spray.jpg" alt="FRANZA SEIZE Y SPRAY" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · SKO · z MoS₂</span>
+              <h3>SEIZE Y SPRAY</h3>
+              <p class="card-subtitle">Penetrant smarny z MoS₂ — Smarowanie, Konserwacja i Ochrona</p>
+              <p>Znakomicie penetrujący środek smarny z dodatkiem MoS₂ zapewniającym dodatkowe zabezpieczenie i zwiększenie właściwości smarnych. Rozluźnia zapieczone śruby, nakrętki i zamocowania, chroni przed korozją. Idealny m.in. do przewodów wysokiego napięcia. Nie zawiera silikonu — odpowiedni dla powierzchni lakierowanych i gumowych.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="smarne">
+            <div class="card-image">
+              <img src="../assets/products/seize-x-spray.jpg" alt="FRANZA SEIZE X SPRAY" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · SPO · z PTFE</span>
+              <h3>SEIZE X SPRAY</h3>
+              <p class="card-subtitle">Penetrujący smar z PTFE — Smarowanie, Penetracja i Ochrona antykorozyjna</p>
+              <p>Znakomicie penetrujący środek smarny z dodatkiem PTFE zapewniającym dodatkowe zabezpieczenie i zwiększenie właściwości smarnych. Rozluźnia zapieczone śruby, nakrętki i zamocowania, chroni przed korozją, utlenianiem, chroni układy elektryczne i poprawia ich trwałość.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="smarne">
+            <div class="card-image">
+              <img src="../assets/products/fr-lube-up.jpg" alt="FRANZA FR LUBE UP" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · z OLEJEM PETROCANADA</span>
+              <h3>FR LUBE UP</h3>
+              <p class="card-subtitle">Smar do lin i łańcuchów z dodatkiem oleju PetroCanada</p>
+              <p>Preparat do wszystkich rodzajów łańcuchów, prowadnic, lin, łożysk wolnoobrotowych oraz do smarowania haków i suwnic. Do stosowania wszędzie, gdzie jest wymagana adhezja preparatu do powierzchni w maszynach i urządzeniach przemysłowych. Gotowy do użycia w środowisku wilgotnym. Zakres temperatur od −5 do +200°C.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="smarne">
+            <div class="card-image">
+              <img src="../assets/products/fr-marine-hk.jpg" alt="FRANZA FR MARINE HK" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · MORSKI</span>
               <h3>FR MARINE HK</h3>
-              <p>Specjalistyczny smar morski (marine grease) odporny na działanie słonej wody. Idealny do jachtów, łodzi i urządzeń pracujących w warunkach morskich.</p>
+              <p class="card-subtitle">Smar morski</p>
+              <p>Smar odporny na wodę i parę wodną, do pracy pod wysokim ciśnieniem i w bardzo trudnych warunkach agresywnych. Bez silikonów. Preparat do wysoko obciążonych łożysk wolnoobrotowych, tocznych, ślizgowych, kulkowych, rolkowych, elementów obciążonych, przewodów, przekładni zębatych, łańcuchów, prowadnic, ślizgów, zaworów. Do przemysłu papierniczego, stoczniowego, hydraulicznego, morskiego. Chroni przed korozją, nie ulega wymywaniu. Może pracować całkowicie zanurzony w wodzie. Zakres temperatur od −20 do +130°C.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <!-- ════════ ZMYWACZE — ODTŁUSZCZACZE (14-18) ════════ -->
+
+          <div class="card product-card" data-category="zmywacze">
+            <div class="card-image">
+              <img src="../assets/products/fr-power-red-solvent.jpg" alt="FRANZA FR POWER RED SOLVENT" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · NA ZIMNO</span>
+              <h3>FR POWER RED SOLVENT</h3>
+              <p class="card-subtitle">Rozpuszczalnik przemysłowy na zimno do myjni ręcznych</p>
+              <p>Preparat do odtłuszczania i czyszczenia części na zimno. Usuwa smary, oleje, smołę, wosk, pozostałości parafiny, asfaltu, klejów, tłuszczu itp. Myje części mechaniczne oraz części elektryczne, pozostawiając warstwę antykorozyjną. Temperatura zapłonu &gt;63°C. Wytrzymałość dielektryczna &gt;25 000 V. Najlepiej sprawdza się w myjniach warsztatowych ręcznych bez podgrzewania. Aplikować można na wiele sposobów — ręcznie, poprzez zamoczenie lub natryskiwać za pomocą rozpylaczy.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="zmywacze">
+            <div class="card-image">
+              <img src="../assets/products/fr-bulk-brake-cleaner.jpg" alt="FRANZA BULK BRAKE CLEANER" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · BENZYNA EKSTRAKCYJNA</span>
+              <h3>BULK BRAKE CLEANER</h3>
+              <p class="card-subtitle">Rozcieńczalnik — benzyna ekstrakcyjna niskoaromatyczna</p>
+              <p>Do odtłuszczania przed malowaniem. Do rozcieńczania tłuszczów, olejów, smarów, usuwania plam, czyszczenia pędzli. Do mycia części metalowych podczas prac remontowych.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="zmywacze">
+            <div class="card-image">
+              <img src="../assets/products/fr-102-spray.jpg" alt="FRANZA FR 102 SPRAY" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · SPRAY</span>
+              <h3>FR 102 SPRAY</h3>
+              <p class="card-subtitle">Zmywacz specjalistyczny o przyjemnym zapachu</p>
+              <p>Rozpuszcza stwardniałe smary, osady, stare warstwy klejów, woski, oleje, smołę i inne zanieczyszczenia, nie wchodząc w reakcję z powierzchnią. Zawiera nieagresywne składniki w stosunku do delikatnych powierzchni. Zastosowana mieszanina związków organicznych i rozpuszczalników pozwala na skuteczne usuwanie zanieczyszczeń przemysłowych. Nadaje się do czyszczenia obudów sprzętu elektronicznego, AGD, desek rozdzielczych, tapicerki w pojazdach, łodziach, samolotach. Nie zostawia plam i nalotów. Pozostawia przyjemny zapach. Spray zapewnia ekonomiczne wykorzystanie i jednakowe, niezmienne działanie przez cały czas użytkowania.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="zmywacze">
+            <div class="card-image">
+              <img src="../assets/products/fr-lion-claw.jpg" alt="FRANZA FR LION CLAW" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · BEZ CHLOROWY</span>
+              <h3>FR LION CLAW</h3>
+              <p class="card-subtitle">Zmywacz techniczny</p>
+              <p>Preparat jako unikalna mieszanina rozpuszczalników bez chlorowych do zmywania chemikaliów trudnych do usunięcia. Rozpuszcza kleje, osady, woski, oleje, stare smary (naturalne i syntetyczne — w tym silikonowe). Zmywa farbę drukarską. Nieodzowny w pracach konserwacyjnych.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="zmywacze">
+            <div class="card-image">
+              <img src="../assets/products/fr-cat-strong.jpg" alt="FRANZA CAT STRONG" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · AEROZOL · 5 L KANISTER</span>
+              <h3>CAT STRONG</h3>
+              <p class="card-subtitle">Bardzo mocny zmywacz</p>
+              <p>Mieszanina silnych rozpuszczalników do odtłuszczania i zmywania zanieczyszczeń z powierzchni metalowych, szklanych, drewnianych, kamiennych. Bezchlorowy środek chemiczny w aerozolu do szybkiego czyszczenia (odtłuszczania) powierzchni. Zawiera składniki, które rozpuszczają stwardniałe smary, osady, stare warstwy klejów CA i anaerobowych, woski, oleje i inne zanieczyszczenia. Produkt dostępny również w 5 L kanistrze.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <!-- ════════ HIGIENA (19) ════════ -->
+
+          <div class="card product-card" data-category="higiena">
+            <div class="card-image image-placeholder" aria-label="FRANZA FR HEAVY DUTY HAND CLEANER — pasta do mycia rąk"></div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · 2 L / 4 L · NOWOŚĆ</span>
+              <h3>FR HEAVY DUTY HAND CLEANER</h3>
+              <p class="card-subtitle">Pasta do mycia rąk z aloesem, olejem jojoba i lanoliną</p>
+              <p>Pasta zawierająca mikro-granulki na bazie krzemianu ułatwiające usuwanie zanieczyszczeń z porów skóry. Zawiera lanolinę, jojobę i aloes. Rozpuszcza brud, oleje, tłuszcze, smary, smołę, resztki farb itd. Nie zawiera rozpuszczalników, a chroni dłonie przed wysuszaniem — dlatego może być stosowana bardzo często. Dostępne opakowania: 2,0 L oraz 4,0 L.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <!-- ════════ NEUTRALIZATORY WYCIEKÓW — MATY SORPCYJNE (20-22) ════════ -->
+
+          <div class="card product-card" data-category="sorbenty">
+            <div class="card-image">
+              <img src="../assets/products/spill-mat.jpg" alt="FRANZA SPILL MAT PREMIUM O&G" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · O&G PREMIUM</span>
+              <h3>SPILL MAT PREMIUM O&G</h3>
+              <p class="card-subtitle">Mata absorpcyjna do olejów i benzyny</p>
+              <p>Hydrofobowa — wypiera wodę. Arkusze sorbentowe do olejów i paliw, w wersji Premium dwuwarstwowe o gramaturze 300 g/m². Absorbują do 18-krotności swojej wagi (81–112 L). Antyelektrostatyczne i niepalne. Wymiary 40 × 50 cm, 100 mat w opakowaniu, 99% polipropylen.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="sorbenty">
+            <div class="card-image">
+              <img src="../assets/products/spill-roll.jpg" alt="FRANZA SPILL ROLL PREMIUM O&G 44M x 50CM" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · O&G PREMIUM · ROLKA</span>
+              <h3>SPILL ROLL PREMIUM O&G 44 M × 50 CM</h3>
+              <p class="card-subtitle">Mata absorpcyjna do olejów i benzyny w rolce</p>
+              <p>Hydrofobowa — wypiera wodę. Sorbent w rolce 50 cm × 44 m z perforacją co 25 cm umożliwiającą stosowanie dowolnych formatów. Absorbcja 91–124 L olejów i paliw. Wyprodukowane metodą MELTBLOWN, zgrzewane ultradźwiękowo. 99% polipropylen, gramatura 300 g/m². Powierzchnia całkowita 22 m². Idealne do zabezpieczania dużych powierzchni.</p>
+              <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
+            </div>
+          </div>
+
+          <div class="card product-card" data-category="sorbenty">
+            <div class="card-image">
+              <img src="../assets/products/spill-barrel.jpg" alt="FRANZA SPILL MAT FOR 210 L BARREL PREMIUM O&G" loading="lazy">
+            </div>
+            <div class="card-body">
+              <span class="card-tag">FRANZA · O&G PREMIUM · BECZKA 210 L</span>
+              <h3>SPILL MAT FOR 210 L BARREL PREMIUM O&G</h3>
+              <p class="card-subtitle">Nakładka absorpcyjna na beczkę 210 litrów</p>
+              <p>Zastosowanie: oleje i benzyny. Okrągłe maty sorbentowe o średnicy 55 cm, dopasowane do beczek 210 L. 25 mat w opakowaniu, waga netto 1,8 kg. Absorbcja do 25 L cieczy ropopochodnych. Hydrofobowe — wypierają wodę. Antyelektrostatyczne i niepalne. Idealne jako zabezpieczenie miejsc składowania olejów i paliw.</p>
               <a href="kontakt.html" class="btn-ghost">Zapytaj o produkt →</a>
             </div>
           </div>
@@ -371,7 +422,7 @@
       <div class="product-modal-body">
         <span class="card-tag" id="productModalTag"></span>
         <h2 id="productModalTitle"></h2>
-        <p id="productModalDesc"></p>
+        <div id="productModalDesc"></div>
         <div class="product-modal-actions">
           <a href="#" class="btn btn-primary" id="productModalCta">
             Zapytaj o ten produkt
@@ -458,19 +509,40 @@
 
     const openModal = (card) => {
       const img = card.querySelector('.card-image img');
+      const placeholderImg = card.querySelector('.card-image.image-placeholder');
       const tag = card.querySelector('.card-tag');
       const title = card.querySelector('h3');
-      const desc = card.querySelector('p');
+      const subtitle = card.querySelector('.card-subtitle');
+      // Główny opis = pierwszy <p> nie będący subtitle
+      const desc = card.querySelector('.card-body p:not(.card-subtitle)');
 
+      // Obraz lub placeholder
       modalImage.innerHTML = '';
+      modalImage.classList.remove('image-placeholder');
       if (img) {
         const clone = img.cloneNode(true);
         clone.removeAttribute('loading');
         modalImage.appendChild(clone);
+      } else if (placeholderImg) {
+        modalImage.classList.add('image-placeholder');
       }
+
       modalTag.textContent = tag ? tag.textContent : '';
       modalTitle.textContent = title ? title.textContent : '';
-      modalDesc.textContent = desc ? desc.textContent : '';
+
+      // Renderuj subtitle (italic, accent) + opis w jednym kontenerze
+      modalDesc.innerHTML = '';
+      if (subtitle) {
+        const subEl = document.createElement('p');
+        subEl.className = 'card-subtitle';
+        subEl.textContent = subtitle.textContent;
+        modalDesc.appendChild(subEl);
+      }
+      if (desc) {
+        const descEl = document.createElement('p');
+        descEl.textContent = desc.textContent;
+        modalDesc.appendChild(descEl);
+      }
 
       const productName = encodeURIComponent(title ? title.textContent.trim() : '');
       modalCta.href = `kontakt.html?produkt=${productName}#contactForm`;
