@@ -39,7 +39,7 @@ function renderHeader() {
     <header class="site-header" id="siteHeader">
       <div class="container header-inner">
         <a href="${basePath}index.html" class="logo" aria-label="FRANZA GROUP — strona główna">
-          <div class="logo-mark">FR</div>
+          <img class="logo-mark logo-mark-img" src="${basePath}assets/logo/franza-logo.png" alt="FRANZA GROUP" width="48" height="48">
           <div class="logo-text">
             <span class="logo-name">FRANZA GROUP</span>
             <span class="logo-tagline">od 2006 r.</span>
@@ -84,7 +84,7 @@ function renderFooter() {
         <div class="footer-grid">
           <div class="footer-brand">
             <a href="${basePath}index.html" class="logo">
-              <div class="logo-mark">FR</div>
+              <img class="logo-mark logo-mark-img" src="${basePath}assets/logo/franza-logo.png" alt="FRANZA GROUP" width="48" height="48">
               <div class="logo-text">
                 <span class="logo-name">FRANZA GROUP</span>
                 <span class="logo-tagline">od 2006 r.</span>
@@ -229,22 +229,52 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('menuToggle');
   const menu = document.getElementById('mobileMenu');
   if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      const isOpen = menu.classList.toggle('open');
-      toggle.classList.toggle('active');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+    const closeMenu = () => {
+      menu.classList.remove('open');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+
+    const openMenu = () => {
+      menu.classList.add('open');
+      toggle.classList.add('active');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    };
+
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (menu.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
     // Zamknij po kliknięciu linku
     menu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('open');
-        toggle.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeMenu);
     });
+
+    // Zamknij po wciśnięciu ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+
+    // Auto-zamykanie gdy zmieni się szerokość okna (np. obrót telefonu w pejzaż / desktop)
+    let lastWidth = window.innerWidth;
+    window.addEventListener('resize', () => {
+      const currentWidth = window.innerWidth;
+      // Zamknij gdy przeszliśmy na desktop (≥1100px) z menu otwartym
+      if (lastWidth < 1100 && currentWidth >= 1100 && menu.classList.contains('open')) {
+        closeMenu();
+      }
+      lastWidth = currentWidth;
+    }, { passive: true });
   }
 
   // Efekt nagłówka + scroll progress + back-to-top — wszystko w jednym scroll handlerze
