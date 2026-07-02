@@ -126,6 +126,19 @@
             <p>Wypełnij formularz, a skontaktujemy się z Tobą w ciągu 24 godzin.</p>
 
             <form id="contactForm" novalidate>
+              <!-- ============================================================
+                   WYSYŁKA MAILI — Web3Forms (działa na statycznym GitHub Pages)
+                   >>> WKLEJ TU SWÓJ KLUCZ <<<
+                   Klucz pobierzesz w 1 min na https://web3forms.com (podajesz
+                   e-mail biuro@franza-group.com → klucz przyjdzie na maila).
+                   Wystarczy podmienić wartość poniżej na otrzymany access key.
+                   ============================================================ -->
+              <input type="hidden" name="access_key" value="TWOJ_KLUCZ_WEB3FORMS">
+              <input type="hidden" name="subject" value="Nowe zapytanie z witryny FRANZA GROUP">
+              <input type="hidden" name="from_name" value="Formularz — franza-group.com">
+              <!-- Honeypot antyspamowy: prawdziwy użytkownik tego nie zaznaczy -->
+              <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+
               <div class="form-row cols-2">
                 <div class="form-group">
                   <label for="name">Imię i nazwisko *</label>
@@ -151,7 +164,7 @@
               <div class="form-row">
                 <div class="form-group">
                   <label for="subject">Temat</label>
-                  <select id="subject" name="subject" class="form-control">
+                  <select id="subject" name="temat" class="form-control">
                     <option value="oferta">Zapytanie ofertowe</option>
                     <option value="produkt">Pytanie o produkt</option>
                     <option value="dystrybucja">Współpraca / dystrybucja</option>

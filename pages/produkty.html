@@ -77,7 +77,7 @@
           <span class="product-search-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </span>
-          <input type="search" id="productSearch" placeholder="Szukaj produktu (np. SPILL, LUBE, CLEANER)…" aria-label="Wyszukaj produkt">
+          <input type="search" id="productSearch" placeholder="Szukaj produktu (np. SPILL, MYJNIE, CLEANER)…" aria-label="Wyszukaj produkt">
           <button type="button" class="product-search-clear" id="productSearchClear" aria-label="Wyczyść wyszukiwanie">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -88,6 +88,9 @@
           <button class="filter-btn" data-filter="wodorozcienczalne">Wodorozcieńczalne</button>
           <button class="filter-btn" data-filter="smarne">Smarne i odrdzewiające</button>
           <button class="filter-btn" data-filter="zmywacze">Zmywacze i odtłuszczacze</button>
+          <button class="filter-btn" data-filter="myjnie-zamkniete">Myjnie (obieg zamknięty)</button>
+          <button class="filter-btn" data-filter="myjnie-reczne">Myjnie ręczne</button>
+          <button class="filter-btn" data-filter="mycie-maszyn">Mycie maszyn i urządzeń</button>
           <button class="filter-btn" data-filter="higiena">Higiena</button>
           <button class="filter-btn" data-filter="sorbenty">Sorbenty</button>
         </div>
@@ -104,7 +107,7 @@
 
           <!-- ════════ PREPARATY WODOROZCIEŃCZALNE (1-9) ════════ -->
 
-          <div class="card product-card" data-category="wodorozcienczalne">
+          <div class="card product-card" data-category="wodorozcienczalne" data-apps="myjnie-zamkniete mycie-maszyn" data-tags="myjnia myjnie obieg zamknięty mycie maszyn urządzeń">
             <div class="card-image">
               <img src="../assets/products/fr-liquid-cleaner.jpg" alt="FRANZA FR LIQUID CLEANER" loading="lazy">
             </div>
@@ -117,7 +120,7 @@
             </div>
           </div>
 
-          <div class="card product-card" data-category="wodorozcienczalne">
+          <div class="card product-card" data-category="wodorozcienczalne" data-apps="mycie-maszyn" data-tags="mycie maszyn urządzeń">
             <div class="card-image">
               <img src="../assets/products/fr-camino-ns.jpg" alt="FRANZA FR CAMINO NS" loading="lazy">
             </div>
@@ -130,7 +133,7 @@
             </div>
           </div>
 
-          <div class="card product-card" data-category="wodorozcienczalne">
+          <div class="card product-card" data-category="wodorozcienczalne" data-apps="myjnie-zamkniete" data-tags="myjnia myjnie obieg zamknięty">
             <div class="card-image">
               <img src="../assets/products/fr-safety-al.jpg" alt="FRANZA FR SAFETY AL" loading="lazy">
             </div>
@@ -169,7 +172,7 @@
             </div>
           </div>
 
-          <div class="card product-card" data-category="wodorozcienczalne">
+          <div class="card product-card" data-category="wodorozcienczalne" data-apps="myjnie-zamkniete mycie-maszyn" data-tags="myjnia myjnie obieg zamknięty mycie maszyn urządzeń">
             <div class="card-image">
               <img src="../assets/products/fr-np700.jpg" alt="FRANZA FR NP700" loading="lazy">
             </div>
@@ -182,7 +185,7 @@
             </div>
           </div>
 
-          <div class="card product-card" data-category="wodorozcienczalne">
+          <div class="card product-card" data-category="wodorozcienczalne" data-apps="myjnie-zamkniete" data-tags="myjnia myjnie obieg zamknięty">
             <div class="card-image">
               <img src="../assets/products/fr-hwp-800.jpg" alt="FRANZA FR HWP 800" loading="lazy">
             </div>
@@ -195,7 +198,7 @@
             </div>
           </div>
 
-          <div class="card product-card" data-category="wodorozcienczalne">
+          <div class="card product-card" data-category="wodorozcienczalne" data-apps="mycie-maszyn" data-tags="mycie maszyn urządzeń">
             <div class="card-image">
               <img src="../assets/products/fr-nixon-zet.jpg" alt="FRANZA FR NIXON ZET" loading="lazy">
             </div>
@@ -208,7 +211,7 @@
             </div>
           </div>
 
-          <div class="card product-card" data-category="wodorozcienczalne">
+          <div class="card product-card" data-category="wodorozcienczalne" data-apps="mycie-maszyn" data-tags="mycie maszyn urządzeń">
             <div class="card-image">
               <img src="../assets/products/fr-biostar.jpg" alt="FRANZA FR BIOSTAR" loading="lazy">
             </div>
@@ -277,7 +280,7 @@
 
           <!-- ════════ ZMYWACZE — ODTŁUSZCZACZE (14-18) ════════ -->
 
-          <div class="card product-card" data-category="zmywacze">
+          <div class="card product-card" data-category="zmywacze" data-apps="myjnie-reczne" data-tags="myjnia ręczna myjnie ręczne">
             <div class="card-image">
               <img src="../assets/products/fr-power-red-solvent.jpg" alt="FRANZA FR POWER RED SOLVENT" loading="lazy">
             </div>
@@ -463,9 +466,12 @@
 
       productCards.forEach((card) => {
         const category = card.dataset.category;
-        const text = normalize(card.textContent);
+        // data-apps = dodatkowe kategorie zastosowań (myjnie, mycie maszyn itp.)
+        const apps = (card.dataset.apps || '').split(' ');
+        // data-tags = słowa kluczowe niewidoczne na karcie, ale znajdowane w wyszukiwarce
+        const text = normalize(card.textContent + ' ' + (card.dataset.tags || ''));
 
-        const matchesCategory = activeCategory === 'all' || category === activeCategory;
+        const matchesCategory = activeCategory === 'all' || category === activeCategory || apps.includes(activeCategory);
         const matchesSearch = !query || text.includes(query);
 
         if (matchesCategory && matchesSearch) {
@@ -577,6 +583,11 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
     });
+
+    // iOS Safari (bfcache) potrafi przywrócić stronę z otwartym modalem
+    // i zablokowanym scrollem — resetuj stan przy każdym pokazaniu strony
+    window.addEventListener('pageshow', closeModal);
+    window.addEventListener('pagehide', closeModal);
   </script>
 </body>
 </html>

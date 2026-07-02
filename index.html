@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FRANZA GROUP — producent chemii technicznej marki FRANZA oraz dystrybutor renomowanych marek (Mannol, Xton, Orapi, NCH Europe) dla przemysłu, motoryzacji i usług.">
-  <meta name="keywords" content="chemia techniczna, chemia przemysłowa, FRANZA, Mannol, Xton, NCH Europe, Orapi, smary, środki czyszczące">
+  <meta name="description" content="FRANZA GROUP — producent chemii technicznej marki FRANZA oraz dystrybutor renomowanych marek (Mannol, Xton, Orapi, Transnet, NCH Europe) dla przemysłu, motoryzacji i usług.">
+  <meta name="keywords" content="chemia techniczna, chemia przemysłowa, FRANZA, Mannol, Xton, NCH Europe, Orapi, Transnet, smary, środki czyszczące, myjnie">
   <meta name="theme-color" content="#0a0a0a">
   <title>FRANZA GROUP — Produkcja i dystrybucja chemii technicznej</title>
 
@@ -84,19 +84,31 @@
       </div>
     </section>
 
-    <!-- Marki strip -->
+    <!-- Marki strip — animowany pasek logotypów (marquee) -->
     <section class="brands-strip">
       <div class="container">
         <p class="brands-strip-label">Nasza marka oraz dystrybucja sprawdzonych producentów</p>
-        <div class="brands-grid brands-grid-5">
-          <a href="pages/marki.html#franza" class="brand-logo brand-logo-featured" aria-label="FRANZA Chemicals">
-            <span class="brand-fr-mark">FR</span>
-            <span class="brand-fr-text">FRANZA</span>
-          </a>
-          <a href="pages/marki.html#mannol" class="brand-logo" aria-label="Mannol"><span>MANNOL</span></a>
-          <a href="pages/marki.html#xton" class="brand-logo" aria-label="Xton"><span style="border:2px solid currentColor;padding:.35rem .9rem;border-radius:4px;">XTON</span></a>
-          <a href="pages/marki.html#orapi" class="brand-logo" aria-label="Orapi"><span>ORAPI</span></a>
-          <a href="pages/marki.html#nch" class="brand-logo" aria-label="NCH Europe"><span style="background:#0046a8;color:#fff;padding:.5rem 1rem;border-radius:4px;">NCH</span></a>
+      </div>
+      <div class="brands-marquee" aria-label="Marki w ofercie FRANZA GROUP">
+        <div class="brands-track">
+          <!-- Grupa 1 (widoczna dla czytników ekranu) -->
+          <div class="brands-group">
+            <a href="pages/marki.html#franza" class="brand-logo-tile brand-logo-tile-franza" aria-label="FRANZA"><img src="assets/logo/franza-atom.png" alt="FRANZA Chemical Solution" loading="lazy"></a>
+            <a href="pages/marki.html#mannol" class="brand-logo-tile" aria-label="Mannol"><img src="assets/brands/mannol-logo.png" alt="MANNOL" loading="lazy"></a>
+            <a href="pages/marki.html#xton" class="brand-logo-tile" aria-label="Xton"><img src="assets/brands/xton-logo.png" alt="XTON Industrial Automation" loading="lazy"></a>
+            <a href="pages/marki.html#transnet" class="brand-logo-tile" aria-label="Transnet"><img src="assets/brands/transnet-logo.png" alt="TRANSNET" loading="lazy"></a>
+            <a href="pages/marki.html#orapi" class="brand-logo-tile" aria-label="Orapi"><img src="assets/brands/orapi-logo.png" alt="ORAPI" loading="lazy"></a>
+            <a href="pages/marki.html#nch" class="brand-logo-tile" aria-label="NCH Europe"><img src="assets/brands/nch-logo.png" alt="NCH" loading="lazy"></a>
+          </div>
+          <!-- Grupa 2 (kopia dla płynnej pętli — ukryta dla czytników ekranu) -->
+          <div class="brands-group" aria-hidden="true">
+            <a href="pages/marki.html#franza" class="brand-logo-tile brand-logo-tile-franza" tabindex="-1"><img src="assets/logo/franza-atom.png" alt="" loading="lazy"></a>
+            <a href="pages/marki.html#mannol" class="brand-logo-tile" tabindex="-1"><img src="assets/brands/mannol-logo.png" alt="" loading="lazy"></a>
+            <a href="pages/marki.html#xton" class="brand-logo-tile" tabindex="-1"><img src="assets/brands/xton-logo.png" alt="" loading="lazy"></a>
+            <a href="pages/marki.html#transnet" class="brand-logo-tile" tabindex="-1"><img src="assets/brands/transnet-logo.png" alt="" loading="lazy"></a>
+            <a href="pages/marki.html#orapi" class="brand-logo-tile" tabindex="-1"><img src="assets/brands/orapi-logo.png" alt="" loading="lazy"></a>
+            <a href="pages/marki.html#nch" class="brand-logo-tile" tabindex="-1"><img src="assets/brands/nch-logo.png" alt="" loading="lazy"></a>
+          </div>
         </div>
       </div>
     </section>
@@ -270,7 +282,7 @@
             <div class="stat-label">Produktów w ofercie</div>
           </div>
           <div>
-            <div class="stat-number">5</div>
+            <div class="stat-number">6</div>
             <div class="stat-label">Marek w ofercie</div>
           </div>
           <div>

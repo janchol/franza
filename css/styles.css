@@ -422,7 +422,9 @@ p {
   position: fixed;
   inset: 0;
   background-color: var(--bg-primary);
-  z-index: 1000;
+  /* Pod nagłówkiem (1000), żeby logo i przycisk zamykania zostały widoczne,
+     ale nad pływającymi przyciskami WhatsApp/powrotu (998) */
+  z-index: 999;
   padding: calc(var(--header-height) + 2rem) 1.5rem 2rem;
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -712,6 +714,128 @@ section {
   color: var(--accent) !important;
   font-size: 1.125rem !important;
   letter-spacing: 0.02em !important;
+}
+
+/* === Animowany pasek logotypów (marquee) === */
+.brands-marquee {
+  position: relative;
+  overflow: hidden;
+  /* Miękkie wygaszenie na obu krawędziach paska */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.brands-track {
+  display: flex;
+  width: max-content;
+  animation: brands-scroll 45s linear infinite;
+}
+
+/* Pauza po najechaniu — łatwiej kliknąć w logo */
+.brands-marquee:hover .brands-track {
+  animation-play-state: paused;
+}
+
+.brands-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-right: 1.5rem; /* zachowuje rytm odstępów na łączeniu pętli */
+}
+
+/* Przesunięcie o dokładnie jedną grupę = bezszwowa pętla */
+@keyframes brands-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Logotypy producentów jako obrazki — biały kafelek, żeby ciemne loga były czytelne */
+.brand-logo-tile {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 96px;
+  padding: 0.75rem 1.5rem;
+  background: #fff;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0.9;
+  transition: opacity var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.brand-logo-tile:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.brand-logo-tile img {
+  max-height: 48px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-logo-tile-franza img {
+  max-height: 60px; /* logo z sygnetem-atomem jest wyższe niż wordmarki partnerów */
+}
+
+@media (max-width: 640px) {
+  .brand-logo-tile {
+    width: 158px;
+    height: 78px;
+    padding: 0.625rem 1.125rem;
+  }
+  .brand-logo-tile img { max-height: 38px; }
+  .brand-logo-tile-franza img { max-height: 48px; }
+  .brands-group { gap: 1rem; padding-right: 1rem; }
+}
+
+/* Szacunek dla ustawień dostępności — bez animacji, statyczna siatka */
+@media (prefers-reduced-motion: reduce) {
+  .brands-track {
+    animation: none;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .brands-marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .brands-group[aria-hidden="true"] { display: none; }
+  .brands-group { flex-wrap: wrap; justify-content: center; padding-right: 0; gap: 1.5rem; }
+}
+
+/* Wersja kafelka do kart marek (dystrybucja) i sekcji szczegółów (marki) */
+.brand-logo-plate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1.25rem;
+}
+
+.brand-logo-plate img {
+  max-height: 40px;
+  max-width: 220px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-detail-logo .brand-logo-plate img {
+  max-height: 52px;
+  max-width: 280px;
+}
+
+@media (max-width: 480px) {
+  .brand-detail-logo .brand-logo-plate img {
+    max-width: 210px;
+  }
 }
 
 /* === Two-column showcase === */
@@ -2078,7 +2202,7 @@ body:has(.whatsapp-fab) .back-to-top {
   visibility: hidden;
   transform: translateY(20px);
   transition: all var(--transition);
-  z-index: 999;
+  z-index: 998; /* pod otwartym menu mobilnym (999) */
   cursor: pointer;
   border: none;
 }

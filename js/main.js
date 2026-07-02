@@ -61,17 +61,19 @@ function renderHeader() {
           <span></span>
         </button>
       </div>
-
-      <div class="mobile-menu" id="mobileMenu">
-        <nav aria-label="Nawigacja mobilna">
-          ${navLinksHTML}
-        </nav>
-        <a href="${basePath}pages/kontakt.html" class="btn btn-primary">
-          Zapytaj o ofertę
-          <span class="arrow">→</span>
-        </a>
-      </div>
     </header>
+
+    <!-- Menu poza <header>: backdrop-filter nagłówka zmienia punkt odniesienia
+         position:fixed i menu otwierałoby się jako pasek wysokości nagłówka -->
+    <div class="mobile-menu" id="mobileMenu">
+      <nav aria-label="Nawigacja mobilna">
+        ${navLinksHTML}
+      </nav>
+      <a href="${basePath}pages/kontakt.html" class="btn btn-primary">
+        Zapytaj o ofertę
+        <span class="arrow">→</span>
+      </a>
+    </div>
   `;
 }
 
@@ -138,6 +140,7 @@ function renderFooter() {
               <li><a href="${basePath}pages/marki.html#mannol">Mannol</a></li>
               <li><a href="${basePath}pages/marki.html#xton">Xton</a></li>
               <li><a href="${basePath}pages/marki.html#orapi">Orapi</a></li>
+              <li><a href="${basePath}pages/marki.html#transnet">Transnet</a></li>
               <li><a href="${basePath}pages/marki.html#nch">NCH Europe</a></li>
             </ul>
           </div>
@@ -275,6 +278,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       lastWidth = currentWidth;
     }, { passive: true });
+
+    // iOS Safari przywraca stronę z bfcache w stanie sprzed nawigacji — z otwartym
+    // menu i zablokowanym scrollem strona wygląda na zawieszoną. Resetuj zawsze.
+    window.addEventListener('pageshow', closeMenu);
+    window.addEventListener('pagehide', closeMenu);
   }
 
   // Efekt nagłówka + scroll progress + back-to-top — wszystko w jednym scroll handlerze
@@ -398,26 +406,73 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    contactForm.addEventListener('submit', (e) => {
+    const submitBtn = contactForm.querySelector('.form-submit');
+    const submitBtnHTML = submitBtn ? submitBtn.innerHTML : '';
+
+    const setFormMessage = (messageEl, type, text) => {
+      if (!messageEl) return;
+      messageEl.className = 'form-message' + (type ? ' ' + type : '');
+      messageEl.textContent = text;
+    };
+
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const messageEl = document.getElementById('formMessage');
       const data = new FormData(contactForm);
 
       // Walidacja podstawowa
       if (!data.get('name') || !data.get('email') || !data.get('message')) {
-        if (messageEl) {
-          messageEl.className = 'form-message error';
-          messageEl.textContent = 'Wypełnij wszystkie wymagane pola.';
-        }
+        setFormMessage(messageEl, 'error', 'Wypełnij wszystkie wymagane pola (imię, e-mail, wiadomość).');
         return;
       }
 
-      // Symulacja wysłania (do podłączenia z backendem / Formspree itp.)
-      if (messageEl) {
-        messageEl.className = 'form-message success';
-        messageEl.textContent = 'Dziękujemy! Wiadomość została wysłana. Skontaktujemy się wkrótce.';
+      // Zgoda RODO wymagana
+      const consent = contactForm.querySelector('#consent');
+      if (consent && !consent.checked) {
+        setFormMessage(messageEl, 'error', 'Zaznacz zgodę na przetwarzanie danych, aby wysłać wiadomość.');
+        return;
       }
-      contactForm.reset();
+
+      // Dopóki nie wklejono klucza Web3Forms — nie wysyłamy, tylko informujemy
+      const accessKey = data.get('access_key');
+      if (!accessKey || String(accessKey).includes('TWOJ_KLUCZ')) {
+        setFormMessage(
+          messageEl,
+          'error',
+          'Formularz nie został jeszcze skonfigurowany. Napisz na biuro@franza-group.com lub zadzwoń: 606 275 785.'
+        );
+        return;
+      }
+
+      // Stan wysyłania
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Wysyłanie…';
+      }
+      setFormMessage(messageEl, '', '');
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: data,
+        });
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          setFormMessage(messageEl, 'success', 'Dziękujemy! Wiadomość została wysłana. Odpowiemy najczęściej tego samego dnia.');
+          contactForm.reset();
+        } else {
+          setFormMessage(messageEl, 'error', (result && result.message) ? result.message : 'Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz na biuro@franza-group.com.');
+        }
+      } catch (err) {
+        setFormMessage(messageEl, 'error', 'Błąd połączenia. Sprawdź internet i spróbuj ponownie, albo napisz na biuro@franza-group.com.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = submitBtnHTML;
+        }
+      }
     });
   }
 });
