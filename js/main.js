@@ -141,6 +141,7 @@ function renderFooter() {
               <li><a href="${basePath}pages/marki.html#xton">Xton</a></li>
               <li><a href="${basePath}pages/marki.html#orapi">Orapi</a></li>
               <li><a href="${basePath}pages/marki.html#transnet">Transnet</a></li>
+              <li><a href="${basePath}pages/marki.html#wurth">Würth</a></li>
               <li><a href="${basePath}pages/marki.html#nch">NCH Europe</a></li>
             </ul>
           </div>
@@ -372,6 +373,48 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+  // --- Slidery (hero + sekcje marek) ---
+  document.querySelectorAll('[data-slider]').forEach((slider) => {
+    const track = slider.querySelector('.fr-slider-track');
+    const slides = Array.from(slider.querySelectorAll('.fr-slide'));
+    if (!track || slides.length <= 1) return;
+
+    const dotsWrap = slider.querySelector('.fr-slider-dots');
+    let index = 0;
+    let timer = null;
+    const interval = parseInt(slider.dataset.interval || '4500', 10);
+
+    const dots = slides.map((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'fr-slider-dot' + (i === 0 ? ' active' : '');
+      d.type = 'button';
+      d.setAttribute('aria-label', 'Przejdź do slajdu ' + (i + 1));
+      d.addEventListener('click', () => go(i, true));
+      if (dotsWrap) dotsWrap.appendChild(d);
+      return d;
+    });
+
+    const go = (i, user) => {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, di) => d.classList.toggle('active', di === index));
+      if (user) restart();
+    };
+
+    const prevBtn = slider.querySelector('.fr-slider-btn.prev');
+    const nextBtn = slider.querySelector('.fr-slider-btn.next');
+    if (prevBtn) prevBtn.addEventListener('click', () => go(index - 1, true));
+    if (nextBtn) nextBtn.addEventListener('click', () => go(index + 1, true));
+
+    const start = () => { timer = setInterval(() => go(index + 1), interval); };
+    const stop = () => { if (timer) clearInterval(timer); };
+    const restart = () => { stop(); start(); };
+
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+    start();
+  });
 
   // Fallback dla brakujących grafik — pokazujemy ozdobny placeholder z logo FR
   document.querySelectorAll('img').forEach((img) => {

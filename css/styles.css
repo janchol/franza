@@ -582,6 +582,104 @@ p {
   inset: 0;
   background: linear-gradient(135deg, transparent 40%, rgba(255, 107, 26, 0.2));
   pointer-events: none;
+  z-index: 1;
+}
+
+/* === Slider (hero + sekcje marek) === */
+.fr-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+  background: #fff;
+}
+.fr-slider-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fr-slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.fr-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.fr-slide-label {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 0.9rem;
+  background: rgba(10, 10, 10, 0.72);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  z-index: 3;
+}
+.fr-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.5);
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  font-size: 1.375rem;
+  line-height: 1;
+  transition: background var(--transition), opacity var(--transition);
+}
+.fr-slider-btn:hover {
+  background: var(--accent);
+}
+.fr-slider-btn.prev {
+  left: 0.75rem;
+}
+.fr-slider-btn.next {
+  right: 0.75rem;
+}
+.fr-slider-dots {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 4;
+}
+.fr-slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.22);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.fr-slider-dot.active {
+  background: var(--accent);
+  width: 22px;
+  border-radius: 4px;
 }
 
 /* === Sections === */
@@ -1323,18 +1421,24 @@ section {
 .card-image {
   aspect-ratio: 16/10;
   overflow: hidden;
-  background-color: var(--bg-tertiary);
+  /* Białe tło — produkty na białym tle są w pełni widoczne i „oddalone” */
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* contain zamiast cover — cały produkt widoczny, nic nie jest przycięte */
+  object-fit: contain;
+  padding: 0.85rem;
   transition: transform var(--transition-slow);
 }
 
 .card:hover .card-image img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .card-body {
