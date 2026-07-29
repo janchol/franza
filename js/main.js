@@ -103,9 +103,6 @@ function renderFooter() {
               <a href="#" class="social-link" aria-label="Facebook">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/></svg>
               </a>
-              <a href="#" class="social-link" aria-label="LinkedIn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/></svg>
-              </a>
               <a href="#" class="social-link" aria-label="Instagram">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
               </a>
@@ -127,7 +124,7 @@ function renderFooter() {
           <div class="footer-col">
             <h5>Produkcja</h5>
             <ul>
-              <li><a href="${basePath}pages/produkcja.html">FRANZA Chemicals</a></li>
+              <li><a href="${basePath}pages/produkcja.html">FRANZA Chemical Solution</a></li>
               <li><a href="${basePath}pages/produkty.html">Nasza oferta</a></li>
               <li><a href="${basePath}pages/o-nas.html">Jakość i certyfikaty</a></li>
               <li><a href="${basePath}pages/produkcja.html">Badania i rozwój</a></li>
@@ -166,8 +163,9 @@ function renderFooter() {
         <div class="footer-bottom">
           <span>© ${year} FRANZA GROUP. Wszelkie prawa zastrzeżone.</span>
           <div class="footer-bottom-links">
-            <a href="#">Polityka prywatności</a>
-            <a href="#">Regulamin</a>
+            <a href="${basePath}pages/polityka-prywatnosci.html">Polityka prywatności</a>
+            <a href="${basePath}pages/polityka-prywatnosci.html#cookies">Polityka cookies</a>
+            <a href="#" data-cookie-settings>Ustawienia cookies</a>
           </div>
         </div>
       </div>
