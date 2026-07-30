@@ -615,19 +615,30 @@ p {
   height: auto;
   object-fit: contain;
 }
+/* Etykieta u góry, nie na dole — dłuższe nazwy produktów wchodziły
+   na wyśrodkowane kropki nawigacji */
 .fr-slide-label {
   position: absolute;
   left: 0.9rem;
-  bottom: 0.9rem;
+  top: 0.9rem;
+  max-width: calc(100% - 1.8rem);
   background: rgba(10, 10, 10, 0.72);
   color: #fff;
   font-size: 0.6875rem;
   font-weight: 600;
+  line-height: 1.35;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 0.3rem 0.75rem;
-  border-radius: 100px;
+  border-radius: 14px;
   z-index: 3;
+}
+
+@media (max-width: 480px) {
+  .fr-slide-label {
+    font-size: 0.625rem;
+    letter-spacing: 0.02em;
+  }
 }
 .fr-slider-btn {
   position: absolute;

@@ -393,10 +393,19 @@ document.addEventListener('DOMContentLoaded', () => {
       return d;
     });
 
+    // Slajdy poza kadrem mają loading="lazy" — bez wcześniejszego pobrania
+    // kolejny slajd wjeżdżałby pusty i doładowywał się na oczach użytkownika.
+    const preload = (i) => {
+      const img = slides[(i + slides.length) % slides.length].querySelector('img[loading="lazy"]');
+      if (img) img.loading = 'eager';
+    };
+
     const go = (i, user) => {
       index = (i + slides.length) % slides.length;
       track.style.transform = `translateX(-${index * 100}%)`;
       dots.forEach((d, di) => d.classList.toggle('active', di === index));
+      preload(index + 1);
+      if (user) preload(index - 1);
       if (user) restart();
     };
 
@@ -411,6 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slider.addEventListener('mouseenter', stop);
     slider.addEventListener('mouseleave', start);
+    preload(1);
     start();
   });
 
