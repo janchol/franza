@@ -118,6 +118,26 @@ na własne fotografie:
 | `pages/dystrybucja.html` | sekcja „Jeden dostawca" | magazyn FRANZA |
 | `pages/branze.html`, `index.html` | ilustracje branż | mogą zostać stockowe |
 
+
+## SEO
+
+Zrobione:
+
+- **`sitemap.xml`** + **`robots.txt`** w katalogu głównym. Po dodaniu podstrony dopisz ją do sitemapy.
+- **`rel="canonical"`** na wszystkich 9 stronach — bez tego `franza-group.com`, `www.franza-group.com` i `/index.html` byłyby dla Google trzema różnymi stronami z tą samą treścią.
+- **Open Graph + Twitter Card** — podgląd linku na Facebooku, LinkedInie i WhatsAppie. Obrazek: `assets/og-franza-group.jpg` (1200×630).
+- **Dane strukturalne** (schema.org `LocalBusiness`) na stronie głównej i Kontakcie — NIP, REGON, adres, telefon, godziny pracy, lista marek. Google używa ich do wizytówki w wynikach.
+- **Kompresja zdjęć** — z 12,4 MB do ok. 1,3 MB. Ciężkie PNG/JPG przekonwertowane na WebP (oryginały zostały na dysku, gdyby trzeba było wrócić).
+- **`<noscript>` z nawigacją** w każdym `#header-slot` — nagłówek buduje JS, więc bez tego boty bez renderowania JS nie widziałyby linków wewnętrznych.
+
+### >>> Po wykupieniu hostingu — zrób to koniecznie <<<
+
+1. **Wybierz jedną wersję domeny** — z `www` albo bez — i ustaw **przekierowanie 301** z drugiej. Obecnie adresy kanoniczne wskazują na `https://www.franza-group.com`. Jeśli domena ma działać bez `www`, podmień je w `<head>` wszystkich stron, w `sitemap.xml` i w `robots.txt` (szukaj komentarza „Gdyby domena działała BEZ www").
+2. **Wymuś HTTPS** — przekierowanie z `http://` na `https://`.
+3. **Zgłoś stronę w [Google Search Console](https://search.google.com/search-console)** i wyślij tam `sitemap.xml`.
+4. **Załóż Profil Firmy w Google** (dawniej Wizytówka) — dla firmy lokalnej to zwykle daje ruch szybciej niż sama strona.
+5. Sprawdź dane strukturalne w [walidatorze Google](https://search.google.com/test/rich-results).
+
 ## Mobile
 
 Strona jest w pełni responsywna. Breakpointy:
