@@ -132,8 +132,14 @@ Zrobione:
 
 ### >>> Po wykupieniu hostingu — zrób to koniecznie <<<
 
-1. **Wybierz jedną wersję domeny** — z `www` albo bez — i ustaw **przekierowanie 301** z drugiej. Obecnie adresy kanoniczne wskazują na `https://www.franza-group.com`. Jeśli domena ma działać bez `www`, podmień je w `<head>` wszystkich stron, w `sitemap.xml` i w `robots.txt` (szukaj komentarza „Gdyby domena działała BEZ www").
-2. **Wymuś HTTPS** — przekierowanie z `http://` na `https://`.
+1. **Przekierowanie 301 z `www` na wersję bez `www`.** Sprawdzone na żywo: `franza-group.com` i `www.franza-group.com` zwracają identyczną treść z kodem 200, bez przekierowania — dla Google to dwie osobne strony z tą samą treścią. Adresy kanoniczne wskazują na wersję **bez `www`**, więc przekierowanie ma iść w tę stronę. Na LiteSpeed wystarczy `.htaccess` w katalogu głównym:
+
+   ```apache
+   RewriteEngine On
+   RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+   RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+   ```
+2. ~~Wymuś HTTPS~~ — **już działa**, `http://` przekierowuje 301 na `https://`.
 3. **Zgłoś stronę w [Google Search Console](https://search.google.com/search-console)** i wyślij tam `sitemap.xml`.
 4. **Załóż Profil Firmy w Google** (dawniej Wizytówka) — dla firmy lokalnej to zwykle daje ruch szybciej niż sama strona.
 5. Sprawdź dane strukturalne w [walidatorze Google](https://search.google.com/test/rich-results).
