@@ -68,7 +68,34 @@ Dla własnej domeny (`franza-group.com` lub innej) — w **Settings → Pages �
 - **Logo** — `assets/favicon.svg` oraz logo w `js/main.js` (funkcja `renderHeader`).
 - **Dane kontaktowe** — telefon, email i adres są w `js/main.js` (stopka) oraz `pages/kontakt.html`.
 - **Mapa** — w `pages/kontakt.html` jest osadzony OpenStreetMap. Wymień współrzędne na dokładną lokalizację.
-- **Formularz** — w `js/main.js` jest tylko walidacja po stronie klienta. Aby formularz faktycznie wysyłał e-maile, podłącz [Formspree](https://formspree.io/), [Web3Forms](https://web3forms.com/) lub własny backend.
+- **Formularz** — brakuje tylko klucza, reszta gotowa. Wejdź na [web3forms.com](https://web3forms.com), podaj `biuro@franza-group.com`, klucz przyjdzie mailem. Wklej go w `pages/kontakt.html` zamiast `TWOJ_KLUCZ_WEB3FORMS` (szukaj komentarza `>>> JEDYNA RZECZ DO ZROBIENIA <<<`) i wgraj plik na serwer.
+
+  Dlaczego Web3Forms, a nie skrypt PHP na hostingu: SPF domeny to `v=spf1 include:_spf.google.com ~all`, czyli wysyłać może wyłącznie Google. Poczta z serwera LiteSpeed nie przeszłaby weryfikacji i lądowałaby w spamie.
+
+  **Do dopisania w polityce prywatności:** formularz przesyła dane przez **Web3Forms** (USA) — po uruchomieniu trzeba dopisać ten podmiot do listy odbiorców danych w sekcji 5.
+
+## Cache — wersjonowanie plików
+
+Serwer każe przeglądarkom trzymać CSS i JS przez 7 dni. Żeby po poprawce wracający
+użytkownicy nie chodzili tydzień na starej wersji, adresy mają sufiks `?v=`, np.
+`css/styles.css?v=72ed3e9f`. **Po każdej edycji `styles.css`, `main.js` lub `cookies.js`
+przelicz go:**
+
+```bash
+python3 - <<'EOF'
+import io, glob, re, hashlib
+h = hashlib.md5()
+for p in ['css/styles.css','js/main.js','js/cookies.js']:
+    h.update(io.open(p,'rb').read())
+v = h.hexdigest()[:8]
+for f in ['index.html'] + sorted(glob.glob('pages/*.html')):
+    s = io.open(f, encoding='utf-8').read()
+    s = re.sub(r'(href="(?:\.\./)?css/styles\.css)(\?v=[a-f0-9]+)?"', r'\1?v=' + v + '"', s)
+    s = re.sub(r'(src="(?:\.\./)?js/(?:main|cookies)\.js)(\?v=[a-f0-9]+)?"', r'\1?v=' + v + '"', s)
+    io.open(f,'w',encoding='utf-8').write(s)
+print('nowa wersja: ?v=' + v)
+EOF
+```
 
 ## RODO — polityka prywatności i cookies
 

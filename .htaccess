@@ -1,0 +1,85 @@
+# ============================================================
+#  FRANZA GROUP — konfiguracja serwera (Apache / LiteSpeed)
+#
+#  MASZ JUŻ .htaccess NA SERWERZE i on działa — przekierowanie na
+#  HTTPS, gzip i cache 7 dni już są. Masz dwie drogi:
+#
+#  A) BEZPIECZNIEJSZA — nie ruszaj swojego pliku, tylko dopisz
+#     w nim sekcję [1] (te 4 linijki z www). Reszta u Ciebie jest.
+#
+#  B) NA CZYSTO — wgraj ten plik zamiast swojego. Ma wszystko,
+#     co serwer robi teraz, plus brakujące przekierowanie z www.
+#
+#  Plik musi leżeć w katalogu głównym, obok index.html.
+#  Uwaga: w FileZilli włącz „Serwer → Wymuś pokazywanie ukrytych
+#  plików", inaczej nie zobaczysz plików zaczynających się od kropki.
+# ============================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # --- [1] www  ->  bez www  (TEGO BRAKUJE) --------------------
+  # Bez tego franza-group.com i www.franza-group.com to dla Google
+  # dwie osobne strony z identyczną treścią i dzielą między siebie moc.
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # --- [2] http -> https  (u Ciebie już działa) ----------------
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # --- [3] /index.html -> /  (jeden adres zamiast dwóch) -------
+  RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [R=301,L]
+</IfModule>
+
+# --- [4] Kompresja (u Ciebie już działa) ----------------------
+# Uwaga: AddOutputFilterByType pochodzi z mod_filter, nie z mod_deflate —
+# stąd podwójna osłona. Bez niej serwer bez mod_filter zwróciłby błąd 500.
+<IfModule mod_deflate.c>
+  <IfModule mod_filter.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE application/xml image/svg+xml
+  </IfModule>
+</IfModule>
+
+# --- [5] Cache przeglądarki (u Ciebie już działa) -------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType text/css                  "access plus 1 month"
+  ExpiresByType application/javascript    "access plus 1 month"
+  ExpiresByType application/pdf           "access plus 1 month"
+  # HTML krótko — żeby zmiany na stronie były widoczne od razu
+  ExpiresByType text/html                 "access plus 0 seconds"
+</IfModule>
+
+# --- [6] Typy MIME ------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType image/svg+xml .svg
+</IfModule>
+
+# --- [7] Podstawowe nagłówki bezpieczeństwa ------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # HSTS — wymusza HTTPS na poziomie przeglądarki. WŁĄCZ DOPIERO,
+  # gdy masz pewność, że certyfikat będzie odnawiany bez przerw.
+  # Przeglądarki zapamiętują to na pół roku i nie da się szybko cofnąć.
+  # Header always set Strict-Transport-Security "max-age=15552000"
+</IfModule>
+
+# --- [8] Ukryj pliki, które nie powinny być publiczne ---------
+<FilesMatch "^\.(htaccess|htpasswd|gitignore|nojekyll)$">
+  Require all denied
+</FilesMatch>
+
+# Strona jest w pełni statyczna — listowanie katalogów zbędne
+Options -Indexes

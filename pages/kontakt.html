@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css?v=72ed3e9f">
   <link rel="icon" type="image/png" href="../assets/favicon.png">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="apple-touch-icon" href="../assets/logo/franza-logo-small.png">
@@ -197,16 +197,29 @@
             <p>Wypełnij formularz, a skontaktujemy się z Tobą w ciągu 24 godzin.</p>
 
             <form id="contactForm" novalidate>
-              <!-- ============================================================
-                   WYSYŁKA MAILI — Web3Forms (działa na statycznym GitHub Pages)
-                   >>> WKLEJ TU SWÓJ KLUCZ <<<
-                   Klucz pobierzesz w 1 min na https://web3forms.com (podajesz
-                   e-mail biuro@franza-group.com → klucz przyjdzie na maila).
-                   Wystarczy podmienić wartość poniżej na otrzymany access key.
-                   ============================================================ -->
-              <input type="hidden" name="access_key" value="TWOJ_KLUCZ_WEB3FORMS">
-              <input type="hidden" name="subject" value="Nowe zapytanie z witryny FRANZA GROUP">
+              <!-- ═══════════════════════════════════════════════════════════
+                   WYSYŁKA MAILI — Web3Forms.  SKONFIGUROWANE, DZIAŁA.
+
+                   Zapytania z formularza lecą na biuro@franza-group.com.
+                   Klucz poniżej jest publiczny z założenia (siedzi w kodzie
+                   strony) — nie jest hasłem i nie daje dostępu do skrzynki.
+
+                   Gdyby kiedyś trzeba było zmienić adres odbiorcy albo klucz:
+                     1. https://web3forms.com → zaloguj się na biuro@franza-group.com
+                     2. Wygeneruj nowy Access Key
+                     3. Podmień wartość w linii poniżej i wgraj ten plik na serwer
+
+                   Dlaczego Web3Forms, a nie skrypt PHP na hostingu:
+                   SPF domeny (v=spf1 include:_spf.google.com ~all) dopuszcza do
+                   wysyłki wyłącznie serwery Google. Poczta wysłana z LiteSpeeda
+                   nie przeszłaby weryfikacji i lądowałaby w spamie.
+                   ═══════════════════════════════════════════════════════════ -->
+              <input type="hidden" name="access_key" value="94045d20-f18e-4906-b4a2-f42464b1a656">
               <input type="hidden" name="from_name" value="Formularz — franza-group.com">
+              <!-- Temat i adres zwrotny uzupełnia js/main.js danymi z formularza,
+                   dzięki czemu "Odpowiedz" w skrzynce trafia prosto do klienta -->
+              <input type="hidden" name="subject" value="Nowe zapytanie z witryny FRANZA GROUP">
+              <input type="hidden" name="replyto" value="">
               <!-- Honeypot antyspamowy: prawdziwy użytkownik tego nie zaznaczy -->
               <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
 
@@ -310,7 +323,7 @@
   </main>
 
   <div id="footer-slot"></div>
-  <script src="../js/main.js"></script>
-  <script src="../js/cookies.js"></script>
+  <script src="../js/main.js?v=72ed3e9f"></script>
+  <script src="../js/cookies.js?v=72ed3e9f"></script>
 </body>
 </html>

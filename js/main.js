@@ -477,12 +477,37 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      // Poprawność adresu — bez tego nie da się odpowiedzieć na zapytanie
+      const email = String(data.get('email')).trim();
+      if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) {
+        setFormMessage(messageEl, 'error', 'Sprawdź adres e-mail — bez poprawnego adresu nie odpiszemy na zapytanie.');
+        return;
+      }
+
       // Zgoda RODO wymagana
       const consent = contactForm.querySelector('#consent');
       if (consent && !consent.checked) {
         setFormMessage(messageEl, 'error', 'Zaznacz zgodę na przetwarzanie danych, aby wysłać wiadomość.');
         return;
       }
+
+      // Temat maila z nazwiskiem i firmą — po nim widać w skrzynce, kto pisze,
+      // bez otwierania wiadomości. Adres zwrotny ustawiamy na adres nadawcy,
+      // dzięki czemu "Odpowiedz" w Gmailu trafia prosto do klienta.
+      const tematy = {
+        oferta: 'Zapytanie ofertowe',
+        produkt: 'Pytanie o produkt',
+        dystrybucja: 'Współpraca / dystrybucja',
+        techniczne: 'Wsparcie techniczne',
+        inne: 'Zapytanie',
+      };
+      const nadawca = String(data.get('name')).trim();
+      const firma = String(data.get('company') || '').trim();
+      data.set('subject',
+        (tematy[data.get('temat')] || 'Zapytanie') +
+        ' — ' + nadawca + (firma ? ' (' + firma + ')' : '') +
+        ' | franza-group.com');
+      data.set('replyto', email);
 
       // Dopóki nie wklejono klucza Web3Forms — nie wysyłamy, tylko informujemy
       const accessKey = data.get('access_key');
@@ -513,8 +538,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok && result.success) {
           setFormMessage(messageEl, 'success', 'Dziękujemy! Wiadomość została wysłana. Odpowiemy najczęściej tego samego dnia.');
           contactForm.reset();
+          messageEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } else {
-          setFormMessage(messageEl, 'error', (result && result.message) ? result.message : 'Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz na biuro@franza-group.com.');
+          // Web3Forms odpowiada po angielsku — nie pokazujemy tego klientowi,
+          // ale zostawiamy w konsoli, żeby dało się zdiagnozować problem
+          if (result && result.message) console.warn('Web3Forms:', result.message);
+          setFormMessage(messageEl, 'error', 'Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz na biuro@franza-group.com.');
         }
       } catch (err) {
         setFormMessage(messageEl, 'error', 'Błąd połączenia. Sprawdź internet i spróbuj ponownie, albo napisz na biuro@franza-group.com.');
